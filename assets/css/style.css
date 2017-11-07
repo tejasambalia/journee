@@ -1,0 +1,833 @@
+﻿/*==========================================================*/
+/*Different Font Families*/
+/*==========================================================*/
+@font-face {
+    font-family: 'copperplate-gothic-light';
+    src: url('../fonts/copperplate-gothic-light.ttf') format('truetype');
+}
+
+/* ::-moz-selection { 
+    background: #fcf8e3;
+}
+
+::selection {
+    background: #fcf8e3;
+}
+
+::-webkit-selection {
+    background: #fcf8e3;
+} */
+
+/*===============================================================================================================================================================================*/
+/*============================================================================Common Css Files===================================================================================*/
+/*===============================================================================================================================================================================*/
+
+/*==============================================================*/
+/*Top Space with Margin*/
+/*==============================================================*/
+.space0 {
+    margin-top: 0px !important;
+    margin-bottom: 0 !important
+}
+
+.space2 {
+    margin-top: 2px !important;
+}
+
+.space5 {
+    margin-top: 5px !important;
+}
+
+.space10 {
+    margin-top: 10px !important;
+}
+
+.space24 {
+    margin-top: 24px !important;
+}
+
+.space15 {
+    margin-top: 15px !important;
+}
+
+.space20 {
+    margin-top: 20px !important;
+}
+
+.space25 {
+    margin-top: 25px !important;
+}
+
+.space30 {
+    margin-top: 30px !important;
+}
+
+.space35 {
+    margin-top: 35px !important;
+}
+
+.space40 {
+    margin-top: 40px !important;
+}
+
+.space50 {
+    margin-top: 50px !important;
+}
+
+.space60 {
+    margin-top: 60px !important;
+}
+
+.space70 {
+    margin-top: 70px !important;
+}
+
+.space80 {
+    margin-top: 80px !important;
+}
+
+.space90 {
+    margin-top: 90px !important;
+}
+
+.space100 {
+    margin-top: 100px !important;
+}
+
+.space110 {
+    margin-top: 110px !important;
+}
+
+.space-5 {
+    margin-top: -5px !important;
+}
+
+/*===================================================================*/
+/*Font-size and weight*/
+/*===================================================================*/
+.fsize10 {
+    font-size: 10px !important;
+}
+
+.fsize12 {
+    font-size: 12px !important;
+}
+
+.fsize14 {
+    font-size: 14px !important;
+}
+
+.fsize16 {
+    font-size: 16px !important;
+}
+
+.fsize18 {
+    font-size: 18px !important;
+}
+
+.fsize20 {
+    font-size: 20px !important;
+}
+
+.fsize22 {
+    font-size: 22px !important;
+}
+
+.fsize24 {
+    font-size: 24px !important;
+}
+
+.fsize26 {
+    font-size: 26px !important;
+}
+
+.fsize28 {
+    font-size: 28px !important;
+}
+
+.fsize30 {
+    font-size: 30px !important;
+}
+
+.fsize32 {
+    font-size: 32px !important;
+}
+
+.fsize34 {
+    font-size: 34px !important;
+}
+
+.fsize36 {
+    font-size: 36px !important;
+}
+
+.fsize38 {
+    font-size: 38px !important;
+}
+
+.fsize40 {
+    font-size: 40px !important;
+}
+
+.fsize42 {
+    font-size: 42px !important;
+}
+
+.fsize44 {
+    font-size: 44px !important;
+}
+
+.fsize46 {
+    font-size: 46px !important;
+}
+
+.fsize48 {
+    font-size: 48px !important;
+}
+
+.fsize50 {
+    font-size: 50px !important;
+}
+
+.f100 {
+    font-weight: 100;
+}
+
+.f200 {
+    font-weight: 200;
+}
+
+.f300 {
+    font-weight: 300;
+}
+
+.f400 {
+    font-weight: 400;
+}
+
+.f500 {
+    font-weight: 500;
+}
+
+.f600 {
+    font-weight: 600;
+}
+
+.f700 {
+    font-weight: 700;
+}
+
+.f900 {
+    font-weight: 900;
+}
+
+.text-ff414d {
+    color: #ff414d
+}
+
+.text-002d40 {
+    color: #002d40
+}
+
+.text-1aa6b7 {
+    color: #1aa6b7
+}
+
+.text-d9ecf2 {
+    color: #d9ecf2
+}
+
+/*====================================================================*/
+/*Width*/
+/*=====================================================================*/
+
+.wid30 {
+    width: 30%;
+}
+
+.wid40 {
+    width: 40%;
+}
+
+.wid50 {
+    width: 50%;
+}
+
+.wid60 {
+    width: 60%;
+}
+
+.wid70 {
+    width: 70%;
+}
+
+.wid80 {
+    width: 80%;
+}
+
+.wid90 {
+    width: 90%;
+}
+
+.wid100 {
+    width: 100%;
+}
+
+/*===================Change a style of placeholder====================*/
+
+::-webkit-input-placeholder {
+}
+
+::-moz-placeholder {
+}
+
+/* firefox 19+ */
+:-ms-input-placeholder {
+}
+
+input:-moz-placeholder {
+}
+
+.anti-row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+/*==================================================================*/
+
+/*==============================================================================================================================================================================*/
+/*=======================================================================Common Css Ends Here===================================================================================*/
+/*==============================================================================================================================================================================*/
+
+/*===========================================================*/
+/*Css on HTML Tags*/
+/*============================================================*/
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.75px;
+    height: 100%;
+    color: #474648;
+}
+
+p, ul, ol {
+    margin-bottom: 0px;
+}
+
+a {
+    color: #ff414d;
+    text-decoration: none;
+    transition: all 0.6s ease;
+    -webkit-transition: all 0.6s ease;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #ff414d;
+    text-decoration: none;
+}
+
+label {
+    font-weight: inherit;
+}
+
+.btn:focus, .btn:active, a:focus, a:active {
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+    outline: 0;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #000;
+}
+
+/*=====================Coming Soon Section Starts here======================*/
+
+.coming_soon {
+    height: 100%;
+    color: #555
+}
+
+.view_table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.view_cell {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.timer_box {
+    text-align: center;
+}
+
+.timer_box>li {
+    font-size: 25px;
+    border-left: 1px solid #ddd;
+    width: 160px;
+}
+
+.timer_box>li:first-child {
+    border-left:0;
+}
+
+.timer_box>li p {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.timer_box>li span {
+    font-size: 38px;
+}
+
+.coming_title {
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 20px;
+    font-family: 'Proza Libre', sans-serif;
+}
+
+.coming_in {
+    margin-bottom: 30px;
+    font-size: 14px;
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.mailchimp_form {
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mailchimp_form .form-group {
+    margin-top: 80px;
+}
+
+.mailchimp_form .form-group:after,
+.mailchimp_form .form-group:before {
+    display: table;
+    clear: both;
+    content: ''
+}
+
+.mailchimp_form .form-control {
+    float: left;
+    box-shadow: none;
+    border-radius: 0;
+    height: 50px;
+    width: calc(100% - 200px);
+}
+
+.mailchimp_form .btn {
+    float: left;
+    width: 180px;
+    margin-left: 20px;
+    border-radius: 0;
+    height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.mailchimp_form .btn:hover,
+.mailchimp_form .btn:focus {
+    color: #333
+}
+
+@media  (max-width: 767px) {
+    .coming_soon {
+        padding: 0 20px;
+    }
+    .mailchimp_form {
+        width: 100%;
+    }
+    .timer_box>li {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        float: left;
+        margin-bottom: 30px;
+    }
+    .timer_box>li:nth-child(3) {
+        border: 0;
+    }
+    .timer_box>li p {
+        font-size: 10px;
+    }
+    .timer_box>li span {
+        font-size: 30px;
+    }
+    .timer_box:after,
+    .timer_box:before {
+        content: '';
+        clear: both;
+        display: table;
+    }
+    .coming_in, .coming_title {
+        font-size: 18px;
+    }
+    .coming_title {
+        line-height: 1.8;
+    }
+    .coming_soon .carousel {
+        position: relative;
+        height: 130px;
+        overflow: hidden;
+    }
+    .mailchimp_form .btn {
+        margin-left: 0;
+        margin-top: 20px;
+        display: inline-block;
+        float: none;
+    }
+    .mailchimp_form .form-control {
+        width: 100%;
+        float: none;
+    }
+    .mailchimp_form {
+        text-align: center;
+    }
+    .mailchimp_form .form-group {
+        margin-top: 30px;
+    }
+}
+
+/*=====================Coming Soon Section Ends here======================*/
+
+/*===================== Login Section Starts here======================*/
+
+.login_bg {
+    background: #1aa6b7;
+}
+
+.bg_shadow {
+    height: 100%;
+}
+
+.login-title {
+    margin-top: 0;
+    color: #fff;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    font-family: 'Proza Libre', sans-serif;
+}
+
+.sign-main-block {
+    height: 100%;
+}
+
+.sign-side-block {
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+    background: #002d40;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control {
+    min-height: 40px;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #444;
+    font-size: 15px;
+}
+
+.sign-side-block .form-control {
+    border: 1px solid transparent;
+}
+
+.btn-signin {
+    border-radius: 0;
+    color: #fff;
+    width: 100%;
+    min-height: 45px;
+    font-size: 16px;
+    background: #ff414d;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.btn-google {
+    background: #4285f4;
+    width: 100%;
+    min-height: 45px;
+    font-size: 16px;
+    position: relative;
+    padding: 2px;
+}
+
+.btn-google:hover,
+.btn-google:focus,
+.btn-signin:hover,
+.btn-signin:focus {
+    color: #fff;
+    opacity: 0.8;
+    transition: all 0.6s ease;
+}
+
+.btn-google:after,
+.btn-google:before {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.btn-google-icon {
+    float: left;
+    width: 40px;
+    height: 39px;
+    background: #fff;
+    padding: 13px 0;
+    text-align: center;
+}
+
+.btn-text {
+    padding: 8px 12px;
+    float: left;
+    width: calc(100% - 45px);
+}
+
+.side-lines {
+    position: relative;
+    font-size: 13px;
+}
+
+.side-lines:after,
+.side-lines:before {
+    position: absolute;
+    content: '';
+    top: 10px;
+    width: 43%;
+    background: #ccc;
+    height: 1px;
+    opacity: 0.6;
+}
+
+.side-lines:after {
+    left: 0;
+}
+
+.side-lines:before {
+    right: 0;
+}
+
+.register-link {
+    font-weight: 700;
+}
+
+.form-control.error {
+    border: 1px solid #ff414d;
+}
+
+label.error {
+    text-align: left;
+    display: block;
+    margin-top: 5px;
+    color: #ff414d;
+}
+
+@media (max-width: 600px) {
+    .sign-main-block {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        right: 0;
+        left: 0;
+    }
+    .sign-side-block {
+        padding: 35px 10px;
+    }
+}
+
+/*===================== Login Section Ends here  ======================*/
+
+/*===================== Navigation starts here  ======================*/
+
+.navbar {
+    border: 0;
+    border-bottom: 1px solid #eee;
+    border-radius: 0;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 15px 15px;
+    color: #002d40;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.75px;
+}
+
+.nav>li.logout>a {
+    background: #ff414d;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav>li.logout>span {
+    font-size: 15px;
+    border-right: 2px solid #002d40;
+    padding-right: 15px;
+    margin-right: 15px;
+    vertical-align: middle;
+    font-weight: 700;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.nav>li>a:focus, .nav>li>a:hover,
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    text-decoration: none;
+    background-color: #fff;
+    color: #ff414d;
+}
+
+.nav>li.logout>a:hover,
+.nav>li.logout>a:focus {
+    background: #002d40;
+    color: #fff;
+}
+
+.nav.navbar-nav.navbar-left {
+    margin-left: 110px;
+}
+
+@media (max-width: 1199px) {
+    .nav.navbar-nav.navbar-left {
+        margin-left: 60px;
+    }
+    .nav>li>a {
+        padding: 15px 10px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav.navbar-nav.navbar-left {
+        margin-left: 0;
+    }
+    .nav>li>a {
+        padding: 15px 10px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+    .nav>li.logout>span {
+        font-size: 13px;
+        padding-right: 8px;
+        margin-right: 8px;
+        margin-top: 8px;
+        display: inline-block;
+    }
+    .nav>li.logout>a {
+        background: #ff414d;
+        color: #fff;
+        padding: 5px 12px;
+        margin-top: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+/*===================== Navigation Ends here  ======================*/
+
+/*===================== Common Components starts here  ======================*/
+
+.btn-default {
+    color: #fff;
+    background-color: #ff414d;
+    border-color: #ff414d;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    border-radius: 0;
+    padding: 10px 20px;
+}
+
+.table-top-btn {
+    margin-top: 20px;
+}
+
+.custom-table.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.action_tab {
+    width: 100px;
+}
+
+.table-btns {
+    text-align: center;
+}
+
+.table-btns>li>a {
+    font-size: 16px;
+    border: 1px solid #ff414d;
+    width: 30px;
+    height: 30px;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    padding: 3px 0;
+    border-radius: 3px;
+}
+
+.title {
+    font-family: 'Proza Libre', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.space-bot-0 {
+    margin-bottom: 0;
+}
+
+.basic-form label {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.basic-form .form-control {
+    min-height: 45px;
+}
+
+/*===================== Common Components ends here  ======================*/
+
+.custom-table {
+    margin-top: 20px;
+}
