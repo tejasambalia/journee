@@ -1280,3 +1280,21 @@ label.error {
 .custom-table {
     margin-top: 20px;
 }
+
+.package-page {
+    padding-bottom: 50px;
+}
+
+.submit_btn_block {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7607843137254902);
+    border-top: 1px solid #ccc;
+}
+
+.hotel_selection_block {
+    padding-bottom: 40px;
+}

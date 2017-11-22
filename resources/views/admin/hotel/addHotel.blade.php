@@ -1,4 +1,4 @@
-@extends('Admin.layouts.master')
+@extends('admin.layouts.master')
 @section('title','Admin Login')
 @section('style')
 <!--page level style-->
@@ -49,7 +49,7 @@ use App\AdminModels\RoomType;
                                     <label>State:</label>
                                     <select class="form-control" name="state_id">
                                         <?php
-                                            $data = array('Gujarat', 'Punjab');
+                                            $data = array('12'=>'Gujarat','28'=> 'Punjab');
                                             $DropDown = $obj->DropDown($data);
                                             echo $DropDown;
                                         ?>
@@ -59,7 +59,7 @@ use App\AdminModels\RoomType;
                                     <label>City:</label>
                                     <select class="form-control" name="city_id">
                                         <?php
-                                            $data = array('Ahmedabad', 'Jamnagar');
+                                            $data = array('333'=>'Ahmedabad','349'=> 'Jamnagar');
                                             $DropDown = $obj->DropDown($data);
                                             echo $DropDown;
                                         ?>

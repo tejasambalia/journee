@@ -50,7 +50,7 @@
                             <ul class="nav navbar-nav navbar-left">
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="index.php">About Us</a></li>
-                                <li><a href="index.php">Packages</a></li>
+                                <li><a href="packagelisting.php">Packages</a></li>
                                 <li><a href="destinations.php">Destinations</a></li>
                                 <li><a href="index.php">Gift Vouchers</a></li>
                             </ul>

@@ -35,6 +35,11 @@ class HotelController extends Controller
 
     public function handleAddHotel(Request $request){
         $data = $request->all();
+
+        $this->validate($request, [
+            'hotel_image_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $image = $request->file('hotel_image_path');
         
         $room_data = array();
         $room_data['name'] = $data['room_name'];

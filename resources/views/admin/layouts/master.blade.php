@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>@yield('title')</title>        
-        @include('Admin.layouts.header')
+        @include('admin.layouts.header')
         <noscript>
             <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
@@ -23,29 +23,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="package.php">Brand</a>
+                        <a class="navbar-brand" href="">Brand</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="package.php">Package</a></li>
+                            <li><a href="{{ url('/admin/package') }}">Package</a></li>
                             <li><a href="{{ url('/admin/hotel') }}">Hotel</a></li>
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown">Manage</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="users.php">Users</a></li>
+                                    <li><a href="{{ url('/admin/users') }}">Users</a></li>
                                     <li><a href="{{ url('/admin/packageCategory') }}">Package Category</a></li>
                                     <li><a href="{{ url('/admin/roomType') }}">Room Type</a></li>
                                 </ul>
                             </li>
-                            <li><a href="inquiry.php">Inquiry</a></li>
-                            <li><a href="orders.php">Orders</a></li>
-                            <li><a href="reports.php">Reports</a></li>
+                            <li><a href="{{ url('/admin/inquiry') }}">Inquiry</a></li>
+                            <li><a href="{{ url('/admin/orders') }}">Orders</a></li>
+                            <li><a href="{{ url('/admin/reports') }}">Reports</a></li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="logout"><span>User 1</span> <a href="signin.php">logout</a></li>
+                            <li class="logout"><span>User 1</span> <a href="{{ url('/admin/logout') }}">logout</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -57,7 +57,7 @@
         @yield('content')
         </div>
 
-        @include('Admin.layouts.footer')
+        @include('admin.layouts.footer')
         @yield('script')
     </body>
 </html>

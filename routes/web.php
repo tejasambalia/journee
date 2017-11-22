@@ -11,7 +11,13 @@
 |
 */
 //Admin
-
+/*
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+Admin area routs start
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+*/
 Route::get('/admin', 'Admin\LoginController@index');
 Route::post('/admin/post_login', 'Admin\LoginController@post_login');
 
@@ -36,6 +42,26 @@ Route::post('/admin/handleAddHotel', 'Admin\HotelController@handleAddHotel');
 Route::get('/admin/viewHotel/{id}', 'Admin\HotelController@viewHotel');
 Route::get('/admin/editHotel/{id}', 'Admin\HotelController@editHotel');
 Route::post('/admin/handleEditHotel', 'Admin\HotelController@handleEditHotel');
+//package
+Route::get('/admin/package', 'Admin\PackageController@package');
+Route::get('/admin/addPackage', 'Admin\PackageController@addPackage');
+Route::post('/admin/handleAddPackage', 'Admin\PackageController@handleAddPackage');
+//users
+Route::get('/admin/users', 'Admin\UsersController@user');
+//Inquiry
+Route::get('/admin/inquiry', 'Admin\InquiryControllter@inquiry');
+//Orders
+Route::get('/admin/order', 'Admin\OrderController@order');
+//Report
+Route::get('/admin/report', 'Admin\ReportController@report');
+
+/*
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+Website routs start
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+*/
 //User
 Route::get('/', function (){    return view('user.homepage');});
 Route::get('/login', 'User\LoginController@index');
@@ -43,9 +69,27 @@ Route::post('/post_login', 'User\LoginController@post_login');
 Route::get('/signup', 'User\LoginController@signup');
 Route::post('/post_signup', 'User\LoginController@post_signup');
 
+Route::get('/forgotpassword', 'User\LoginController@forgotpassword');
+Route::post('/post_forgotpassword', 'User\LoginController@post_forgotpassword');
+
+Route::get('/passwordreset/{id}', 'User\LoginController@passwordreset');
+Route::post('/post_passwordreset/{id}', 'User\LoginController@post_passwordreset');
+//logout
+Route::get('/logout', 'User\LogoutController@index');
+//about us
+Route::get('/aboutus', 'User\AboutusController@index');
+Route::get('/package', 'User\PackageController@index');
+
 Route::group(['middleware' => 'User'], function () {        
     
 });
 
+/*
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+Cron JOB routs
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+*/
 //cron route
 Route::get('cron/processmail','Notification\CronRoute@processmail');

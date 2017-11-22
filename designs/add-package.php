@@ -104,10 +104,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="button" data-target="#hotel_selection" data-toggle="collapse" class="btn btn-default">Continue</button>
+                                    <button id="continue_btn" type="button" data-target="#hotel_selection" data-toggle="collapse" class="btn btn-default">Continue</button>
                                 </div>
                             </div>  
-                            <div class="collapse" id="hotel_selection">
+                            <div class="collapse hotel_selection_block" id="hotel_selection">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <ul class="list-inline">
@@ -129,6 +129,15 @@
                                             <option>Room 1</option>
                                             <option>Room 2</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="submit_btn_block">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <button type="submit" class="btn btn-default">Save Package</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>  

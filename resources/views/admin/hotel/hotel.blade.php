@@ -1,4 +1,4 @@
-@extends('Admin.layouts.master')
+@extends('admin.layouts.master')
 @section('title','Admin Login')
 @section('style')
 <!--page level style-->
@@ -60,7 +60,7 @@ $data_hotel = Hotel::get();
                                     <td>{!! $type !!}</td>
                                     <td>
                                         <ul class="list-inline table-btns">
-                                            <?
+                                            <?php
                                             $view_url = url('/admin/viewHotel/'.$d_hotel->id);
                                             $edit_url = url('/admin/editHotel/'.$d_hotel->id);
                                             ?>

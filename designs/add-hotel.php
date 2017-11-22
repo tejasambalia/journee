@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 form-group">
-                                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#hotel_rooms_add">Continue</button>
+                                        <button type="button" id="continue_btn" class="btn btn-default" data-toggle="collapse" data-target="#hotel_rooms_add">Continue</button>
                                     </div>
                                 </div>   
                             </div>

@@ -1,4 +1,4 @@
-@extends('Admin.layouts.master')
+@extends('admin.layouts.master')
 @section('title','Admin Login')
 @section('style')
 <!--page level style-->

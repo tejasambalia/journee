@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Validator;
 //Admin Models
 use App\AdminModels\Users;
 class LoginController extends Controller
@@ -27,12 +28,13 @@ class LoginController extends Controller
     }
     function post_login(Request $request)
     {
+        $data = $request->only('username', 'password');
         $username = $request->get('username');
         $password = $request->get('password');
         $count=Users::where(array('username'=>"$username",'password'=>"$password"))->count();   
-        if($count>0)
+        if($count>0&&\Auth::attempt($data))
         {
-            echo "success";
+            return redirect('/admin/hotel')->with('success_msg', 'Login successfully ');
         }   
     }
 }

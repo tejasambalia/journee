@@ -13,6 +13,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 //Admin Models
 use App\AdminModels\PackageCategory;
+use App\AdminModels\Package;
+use App\Classes\ArrayClass;
 
 class PackageController extends Controller
 {
@@ -53,5 +55,33 @@ class PackageController extends Controller
         PackageCategory::remove($id);
 
         return redirect('/admin/packageCategory');
+    }
+
+    public function package(){
+        return view('admin.package.package');
+    }
+
+    public function addPackage(){
+        return view('admin.package.addPackage');
+    }
+
+    public function handleAddPackage(Request $request){
+        $data = $request->all();
+
+        $package_data = array();
+        $package_data['name'] = $data['name'];
+        $package_data['price'] = $data['price'];
+        $package_data['category'] = $data['category'];
+        $package_data['days'] = $data['days'];
+        $package_data['nights'] = $data['nights'];
+        $package_data['city'] = $data['city'];
+        $package_data['coupon_id'] = $data['coupon_id'];
+        $package_data['discount_type'] = $data['discount_type'];
+        $package_data['discount_amount'] = $data['discount_amount'];
+        $package_data['description'] = $data['description'];
+
+        $package_id = Package::add($package_data);
+
+        return redirect('/admin/package');
     }
 }

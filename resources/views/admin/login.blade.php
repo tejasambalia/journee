@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>@yield('title')</title>        
-        @include('Admin.layouts.header')
+        @include('admin.layouts.header')
         <noscript>
             <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
@@ -19,7 +19,7 @@
 	                    <div class="sign-side-block">
 	                        <h1 class="login-title">Login</h1>
 	                        <div class="space20"></div>
-	                        {!! Form::open(array('url' => 'post_login', 'id' => 'form-validation', 'method' => 'post', 'accept-charset' => 'utf-8')) !!}
+	                        {!! Form::open(array('url' => 'admin/post_login', 'id' => 'form-validation', 'method' => 'post', 'accept-charset' => 'utf-8')) !!}
 	                            <div class="form-group">
 	                            	{!! Form::text('username', null, array('class' => 'form-control',  'placeholder' => 'Email Address', 'required' => 'required')) !!}
 	                            </div>
@@ -39,7 +39,7 @@
         @yield('content')
         </div>
 
-        @include('Admin.layouts.footer')
+        @include('admin.layouts.footer')
         @yield('script')
         {!! Html::script('/assets/js/jquery.validate.js') !!}
 	    <script type="text/javascript">

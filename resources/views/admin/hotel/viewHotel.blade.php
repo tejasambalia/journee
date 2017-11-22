@@ -1,4 +1,4 @@
-@extends('Admin.layouts.master')
+@extends('admin.layouts.master')
 @section('title','Admin Login')
 @section('style')
 <!--page level style-->
@@ -11,7 +11,7 @@ use App\AdminModels\Room;
 use App\AdminModels\RoomType;
 use App\AdminModels\State;
 use App\AdminModels\City;
-use App\AdminModels\roomOption;
+use App\AdminModels\RoomOption;
 use App\Classes\GuestAllowedCondition;
 $hotel_data = Hotel::findById($id);
 $room_data = Room::getByHotelId($hotel_data->id);
