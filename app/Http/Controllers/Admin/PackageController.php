@@ -99,4 +99,17 @@ class PackageController extends Controller
 
         return redirect('/admin/package');
     }
+
+    public function viewPackage($id){
+
+    }
+
+    public function editPackage($id){
+
+    }
+
+    public function deletePackage($id){
+        Package::remove($id);
+        return redirect('/admin/package');
+    }
 }

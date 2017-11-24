@@ -47,6 +47,9 @@ Route::get('/admin/deleteHotel/{id}', 'Admin\HotelController@deleteHotel');
 Route::get('/admin/package', 'Admin\PackageController@package');
 Route::get('/admin/addPackage', 'Admin\PackageController@addPackage');
 Route::post('/admin/handleAddPackage', 'Admin\PackageController@handleAddPackage');
+Route::get('/admin/viewPackage/{id}', 'Admin\PackageController@viewPackage');
+Route::get('/admin/editPackage/{id}', 'Admin\PackageController@editPackage');
+Route::get('/admin/deletePackage/{id}', 'Admin\PackageController@deletePackage');
 //users
 Route::get('/admin/users', 'Admin\UsersController@user');
 //Inquiry

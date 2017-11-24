@@ -22,9 +22,6 @@ $room_data = Room::getByHotelId($hotel_data->id);
             <div class="col-md-6">
                 <h1 class="title space-bot-0">View {!! $hotel_data->name !!}</h1>
             </div>
-            <div class="col-md-6 text-right">
-                <a href="" class="btn btn-default table-top-btn">Edit hotel</a>
-            </div>
         </div>
         <hr>
         <div class="row">

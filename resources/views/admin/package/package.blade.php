@@ -5,6 +5,13 @@
 @endsection
 <!--page content-->
 @section('content')
+<?php
+use App\AdminModels\Package;
+use App\AdminModels\PackageCategory;
+use App\AdminModels\City;
+
+$data_package = Package::get();
+?>
     <section class="package-page">
         <div class="container">
             <div class="row">
@@ -22,7 +29,7 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Image</th>
+                                    <!-- <th>Image</th> -->
                                     <th>Name</th>
                                     <th>category</th>
                                     <th>City</th>
@@ -32,22 +39,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $count = 0;
+                                ?>
+                                @foreach($data_package as $d_package)
+                                <?php
+                                $count++;
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td><img src="https://placeimg.com/100/100/nature" class="img-responsive"></td>
-                                    <td>Package 1</td>
-                                    <td>Category 1</td>
-                                    <td>Ahmedabad</td>
-                                    <td>20-09-2017 to 30-12-2017</td>
-                                    <td>Lorem Ipsum donor sit amet</td>
+                                    <td>{!! $count !!}</td>
+                                    <!-- <td><img src="https://placeimg.com/100/100/nature" class="img-responsive"></td> -->
+                                    <td>{!! $d_package->name !!}</td>
+                                    <td>{!! PackageCategory::getSingleColumnData($d_package->category, 'name') !!}</td>
+                                    <td>{!! City::getSingleColumnData($d_package->city, 'name') !!}</td>
+                                    <td></td>
+                                    <td>{!! $d_package->description !!}</td>
                                     <td>
                                         <ul class="list-inline table-btns">
-                                            <li><a href="view-package.php" class="edit"><i class="ion-forward"></i></a></li>
-                                            <li><a href="edit-package.php" class="edit"><i class="ion-edit"></i></a></li>
-                                            <li><a href="#" class="delete"><i class="ion-android-delete"></i></a></li>
+                                            <?php
+                                            $view_url = url('/admin/viewPackage/'.$d_package->id);
+                                            $edit_url = url('/admin/editPackage/'.$d_package->id);
+                                            $delete_url = url('/admin/deletePackage/'.$d_package->id);
+                                            ?>
+                                            <li><a href="{{ $view_url }}" class="edit"><i class="ion-forward"></i></a></li>
+                                            <li><a href="{{ $edit_url }}" class="edit"><i class="ion-edit"></i></a></li>
+                                            <li><a href="{{ $delete_url }}" onclick="return confirm('Are you sure you want to delete package?')" class="delete"><i class="ion-android-delete"></i></a></li>
                                         </ul>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

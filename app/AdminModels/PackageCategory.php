@@ -23,6 +23,7 @@ class PackageCategory extends Model
 
     public static function getSingleColumnData($addressId, $columnName){
         $profileObj = DB::table('m_package_category')->where('id', $addressId)->select($columnName)->first();
+        return $profileObj->$columnName;
     }
 
     public static function get(){

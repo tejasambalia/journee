@@ -86,7 +86,7 @@
                     <div class="col-sm-4">
                         <div class="offer_box">
                             <div class="offer_img">
-                                <img src="https://placeimg.com/360/200/nature" class="img-responsive wid100">
+                                <img src="img/tour/journee-3.jpg" class="img-responsive wid100">
                                 <div class="offer_discount">
                                     <span>-50%</span>
                                     <a href="#" class="btn btn-default">book</a>
@@ -104,7 +104,7 @@
                     <div class="col-sm-4">
                         <div class="offer_box">
                             <div class="offer_img">
-                                <img src="https://placeimg.com/360/200/arch" class="img-responsive wid100">
+                                <img src="img/tour/journee-8.jpg" class="img-responsive wid100">
                                 <div class="offer_discount">
                                     <span>-50%</span>
                                     <a href="#" class="btn btn-default">book</a>
@@ -122,7 +122,7 @@
                     <div class="col-sm-4">
                         <div class="offer_box">
                             <div class="offer_img">
-                                <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
+                                <img src="img/tour/journee-7.jpg" class="img-responsive wid100">
                                 <div class="offer_discount">
                                     <span>-50%</span>
                                     <a href="#" class="btn btn-default">book</a>
