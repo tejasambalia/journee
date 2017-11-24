@@ -63,10 +63,11 @@ $data_hotel = Hotel::get();
                                             <?php
                                             $view_url = url('/admin/viewHotel/'.$d_hotel->id);
                                             $edit_url = url('/admin/editHotel/'.$d_hotel->id);
+                                            $delete_url = url('/admin/deleteHotel/'.$d_hotel->id);
                                             ?>
                                             <li><a href="{{ $view_url }}" class="edit"><i class="ion-forward"></i></a></li>
                                             <li><a href="{{ $edit_url }}" class="edit"><i class="ion-edit"></i></a></li>
-                                            <li><a href="" class="delete"><i class="ion-android-delete"></i></a></li>
+                                            <li><a href="{{ $delete_url }}" onclick="return confirm('Are you sure you want to delete hotel?')" class="delete"><i class="ion-android-delete"></i></a></li>
                                         </ul>
                                     </td>
                                 </tr>

@@ -131,4 +131,10 @@ class HotelController extends Controller
         }
         return redirect('/admin/hotel');
     }
+
+    public function deleteHotel($id){
+        Hotel::remove($id);
+
+        return redirect('/admin/hotel');        
+    }
 }

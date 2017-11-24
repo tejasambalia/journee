@@ -13,6 +13,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 //Admin Models
 use App\AdminModels\RoomType;
+use App\AdminModels\Room;
+use App\Classes\DropDown;
 
 class RoomController extends Controller
 {
@@ -52,5 +54,15 @@ class RoomController extends Controller
         RoomType::edit($data);
 
         return redirect('/admin/roomType');
+    }
+
+    public function fetchroom(Request $request){
+        $data = $request->all();
+        $room_data = Room::getDropDownData($data['hotel_id']);
+
+        $obj = new DropDown;
+        $return_data = $obj->ObjDropDown($room_data);
+
+        return $return_data;
     }
 }

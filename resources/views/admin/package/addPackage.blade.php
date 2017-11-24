@@ -10,10 +10,14 @@ use App\Classes\DropDown;
 use App\AdminModels\PackageCategory;
 use App\AdminModels\City;
 use App\AdminModels\Coupon;
+use App\AdminModels\Hotel;
 
 $packageCategory = PackageCategory::get();
 $city = City::get();
 $coupon = Coupon::getActive();
+
+//get hotels
+$hotels = Hotel::getDropDownData();
 ?>
     <section class="package-page">
         <div class="container">
@@ -130,16 +134,17 @@ $coupon = Coupon::getActive();
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <label>Select Hotel:</label>
-                                    <select class="form-control">
-                                        <option>Hotel 1</option>
-                                        <option>Hotel 2</option>
+                                    <select class="form-control" name="package_hotel" id="hotel_id" onchange="get_hotel_rooms()">
+                                        <?php
+                                            $DropDown = $obj->ObjDropDown($hotels);
+                                            echo $DropDown;
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label>Select Room:</label>
-                                    <select class="form-control">
-                                        <option>Room 1</option>
-                                        <option>Room 2</option>
+                                    <select class="form-control" id="display_room" name="package_room">
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -158,6 +163,20 @@ $coupon = Coupon::getActive();
             </div>
         </div>  
     </section>
+    <script type="text/javascript">
+        function get_hotel_rooms(){
+            var hotel_id = $('#hotel_id').val();
+
+            $.ajax({
+                type: "GET",
+                url: "/travel/admin/fetchroom",
+                data: {hotel_id:hotel_id},
+                success: function(msg) {  
+                    $("#display_room").html(msg);
+                }
+            });
+        }
+    </script>
 @endsection
 @section('script')
 <!--page level script-->

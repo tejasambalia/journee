@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use App\AdminModels\PackageCategory;
 use App\AdminModels\Package;
 use App\Classes\ArrayClass;
+use App\AdminModels\PackageHotel;
+use App\AdminModels\PackageRoom;
 
 class PackageController extends Controller
 {
@@ -68,6 +70,7 @@ class PackageController extends Controller
     public function handleAddPackage(Request $request){
         $data = $request->all();
 
+        //add package details
         $package_data = array();
         $package_data['name'] = $data['name'];
         $package_data['price'] = $data['price'];
@@ -81,6 +84,18 @@ class PackageController extends Controller
         $package_data['description'] = $data['description'];
 
         $package_id = Package::add($package_data);
+
+        //add hotel details
+        $hotel_data['package_id'] = $package_id;
+        $hotel_data['hotel_id'] = $data['package_hotel'];
+
+        $package_hotel_id = PackageHotel::add($hotel_data);
+
+        //add room details
+        $room_data['package_hotel_id'] = $package_hotel_id;
+        $room_data['room_id'] = $data['package_room'];
+
+        PackageRoom::add($room_data);
 
         return redirect('/admin/package');
     }

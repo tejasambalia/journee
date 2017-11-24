@@ -42,6 +42,7 @@ Route::post('/admin/handleAddHotel', 'Admin\HotelController@handleAddHotel');
 Route::get('/admin/viewHotel/{id}', 'Admin\HotelController@viewHotel');
 Route::get('/admin/editHotel/{id}', 'Admin\HotelController@editHotel');
 Route::post('/admin/handleEditHotel', 'Admin\HotelController@handleEditHotel');
+Route::get('/admin/deleteHotel/{id}', 'Admin\HotelController@deleteHotel');
 //package
 Route::get('/admin/package', 'Admin\PackageController@package');
 Route::get('/admin/addPackage', 'Admin\PackageController@addPackage');
@@ -54,6 +55,9 @@ Route::get('/admin/inquiry', 'Admin\InquiryControllter@inquiry');
 Route::get('/admin/order', 'Admin\OrderController@order');
 //Report
 Route::get('/admin/report', 'Admin\ReportController@report');
+
+//fetch hotelwise room dropdown
+Route::get('/admin/fetchroom', 'Admin\RoomController@fetchroom');
 
 /*
 |--------------------------------------------------------------------------

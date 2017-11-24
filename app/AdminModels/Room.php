@@ -105,4 +105,13 @@ class Room extends Model
 
         return $data;
     }
+
+    public static function getDropDownData($hotel_id){
+        $data = DB::table('room')
+            ->select('id', 'name')
+            ->where('hotel_id', '=', $hotel_id)
+            ->get();
+
+        return $data;
+    }
 }

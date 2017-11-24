@@ -78,4 +78,12 @@ class Hotel extends Model
             ->where('id', '=', $id)
             ->delete();
     }
+
+    public static function getDropDownData(){
+        $data = DB::table('hotel')
+            ->select('id', 'name')
+            ->get();
+
+        return $data;
+    }
 }
