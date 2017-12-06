@@ -23,6 +23,12 @@ class PackageHotel extends Model
 
     public static function getSingleColumnData($addressId, $columnName){
         $profileObj = DB::table('package_hotel')->where('id', $addressId)->select($columnName)->first();
+        return $profileObj;
+    }
+
+    public static function getPackageHotel($_package_id){
+        $obj = DB::table('package_hotel')->where('package_id', $_package_id)->get();
+        return $obj;
     }
 
     public static function get(){

@@ -22,12 +22,12 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <form class="search_form">
+<!--                            <form class="search_form">
                                 <div class="form-group">
                                     <input type="search" class="form-control" placeholder="Search here" name="">
                                     <button type="submit" class="btn btn-default"><i class="ion-android-search"></i></button>
                                 </div>
-                            </form>
+                            </form>-->
                         </div>
                         <div class="col-md-4">
                             <ul class="list-inline topbar_menu text-right">
@@ -77,7 +77,8 @@
                                 <li><a href="{{url('/aboutus')}}">About Us</a></li>
                                 <li><a href="{{url('/package')}}">Packages</a></li>
                                 <li><a href="{{url('/')}}">Destinations</a></li>
-                                <li><a href="{{url('/')}}">Gift Vouchers</a></li>
+                                <li><a href="#inquiryModal" data-toggle="modal" data-target="#inquiryModal">Inquiry</a></li>
+                                
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -85,8 +86,8 @@
                 </div>
                 <!-- /.container-fluid -->
             </nav>
-        </header>        
-         {{-- @include('user.layouts.modals')  --}}
+        </header>                 
+        @include('user.layouts.modals')  
         @yield('content')
         @include('user.layouts.footer')
         @yield('script')

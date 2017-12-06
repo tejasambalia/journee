@@ -16,6 +16,8 @@ use App\AdminModels\Hotel;
 use App\AdminModels\Room;
 use App\AdminModels\RoomOption;
 use App\Classes\ArrayClass;
+use App\Classes\General;
+use Image;
 
 class HotelController extends Controller
 {
@@ -35,11 +37,29 @@ class HotelController extends Controller
 
     public function handleAddHotel(Request $request){
         $data = $request->all();
-
         $this->validate($request, [
-            'hotel_image_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'hotel_image_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        $image = $request->file('hotel_image_path');
+
+        //upload hotel image
+        $hotel_image = $request->file('hotel_image_path');
+        $imagename = time().'_hotel.'.$hotel_image->getClientOriginalExtension();
+        $request->hotel_image_path->move(public_path('img'), $imagename);
+        
+        //generate hotel image path
+        $obj = new General;
+        $data['hotel_image_path'] = $obj->getUserImagePath($imagename);
+
+        //upload room image
+        $room_image = $request->file('room_image');
+        $imagename = time().'_room.'.$room_image->getClientOriginalExtension();
+        $request->room_image->move(public_path('img'), $imagename);
+
+        //generate room image path
+        $obj = new General;
+        $data['room_image'] = $obj->getUserImagePath($imagename);
+
+        
         
         $room_data = array();
         $room_data['name'] = $data['room_name'];
@@ -47,7 +67,6 @@ class HotelController extends Controller
         $room_data['total_available'] = $data['total_available'];
         $room_data['guest_condition'] = $data['guest_condition'];
         $room_data['guest_allowed'] = $data['guest_allowed'];
-        $room_data['room_image'] = $data['room_image'];
         $room_data['room_description'] = $data['room_description'];
         $room_data['option'] = $data['option'];
         $room_data['description'] = $data['room_description'];
@@ -60,6 +79,7 @@ class HotelController extends Controller
         
         //add room
         $new_room_data['hotel_id'] = $hotel_id;
+        $new_room_data['room_image'] = $data['room_image'];
         $room_id = Room::add($new_room_data);
 
         //add room options

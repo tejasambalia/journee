@@ -19,7 +19,7 @@ use App\AdminModels\RoomType;
             <hr>
             <div class="row">
                 <div class="col-md-12">
-                    {!! Form::open(array('url' => '/admin/handleAddHotel', 'class' => 'basic-form', 'method' => 'post')) !!}
+                    {!! Form::open(array('url' => '/admin/handleAddHotel', 'class' => 'basic-form', 'method' => 'post', 'enctype' => "multipart/form-data")) !!}
                     <form class="basic-form">
                         <div class="hotel_details">
                             <div class="row">
@@ -132,7 +132,7 @@ use App\AdminModels\RoomType;
                                     </div>
                                     <div class="form-group">
                                         <label>Upload Image</label>
-                                        {!! Form::file('room_image[]', array('class' => 'form-control')) !!}
+                                        {!! Form::file('room_image', array('class' => 'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-sm-6 form-group">

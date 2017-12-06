@@ -1241,19 +1241,36 @@ label {
     background-position: center;
 }
 
-.search_filter h1{
-    font-size: 23px;
-    line-height: 1.3;
+.search_filter h1 {
+    font-size: 40px;
+    line-height: 1.2;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-top: 0;
     margin-bottom: 35px;
+    color: #333;
+    font-weight: 700;
+}
+
+.home_search_panel {
+	margin-left: 0;
+}
+
+.home_search_panel li:first-child {
+	width: 40%;
+}
+
+.home_search_panel li {
+	width: 20%;
+	margin-left: -5px;
+	padding: 0;
+	vertical-align: bottom;
 }
 
 .search_filter {
-    max-width: 500px;
-    margin-top: auto;
-    background: #fff;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.48);
     padding: 40px;
 }
 

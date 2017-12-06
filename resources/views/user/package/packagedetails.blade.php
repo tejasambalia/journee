@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>    
-        <?php include "head.php"; ?>
-        <title>Package Description | Travel</title>
-    </head>
-    <body>
-        <?php include "header.php"; ?>
+@extends('user.layouts.master')
+@section('title','Package Description | Travel')
+@section('style')
+<!--page level style-->
+@endsection
+<!--page content-->
 
-        <section class="best_offers_sec">
+@section('content')
+@if(session('error_msg'))      
+<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  {{session('error_msg')}}
+</div>
+@elseif(session('success_msg'))       
+<div class="alert alert-success alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  {{session('success_msg')}}
+</div>
+@endif
+@php
+use App\AdminModels\City;
+@endphp
+ <section class="best_offers_sec">
             <div class="container">
                 <div class="package_desc_wrapper">
                     <div class="row">
@@ -20,22 +33,23 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="package_details">
-                                        <h3 class="detail_name">Lorem ipsum donor sit amet <span>(4 Days & 3 Nights) | Customizable</span></h3>                                       
+                                        <h3 class="detail_name">{{$package_details->name}} <span>{{($package_details->days==1)?'Day':'Days'}} and {{$package_details->nights}} {{($package_details->nights==1)?'Night':'Nights'}} | Customizable</span></h3>                                       
                                         <ul class="list-inline package_hotel_include city_include">
                                             <li><p class="package_hotel">Cities:</p></li>
-                                            <li>Mumbai</li>
-                                            <li>Puna</li>
-                                            <li>Banglore</li>
+                                            <li>{{City::getSingleColumnData($package_details->id,'name')}}</li>
                                         </ul>
                                         <ul class="detail_package_pricing list-unstyled">
-                                            <li><span class="startin_text">Starting From:</span> <span class="detail_price">Rs. 15,000</span> <span class="detail_discount">5% off</span> </li>
+                                            <li><span class="startin_text">Starting From:</span> <span class="detail_price">Rs. {{$package_details->price}}</span> <span class="detail_discount">5% off</span> </li>
                                             <li class="per_person">Per person on twin sharing</li>
                                         </ul>
                                         <ul class="list-inline package_hotel_include">
                                             <li><p class="package_hotel">Hotel Included:</p></li>
-                                            <li><i class="ion-checkmark-circled active"></i> 5 star</li>
-                                            <li>4 star</li>
-                                            <li>3 star</li>
+                                            <!--<li><i class="ion-checkmark-circled active"></i> 5 star</li>-->
+                                            @php
+                                            foreach($Hotel_types as $row1){@endphp
+                                            <li>{{$row1->type}}</li>
+                                            @php }
+                                            @endphp
                                         </ul> 
                                         <ul class="list-inline package_inclusions detail_package_inclusions">
                                             <li class="active"><i class="icon ion-fork"></i><span>Meals</span></li>
@@ -46,7 +60,7 @@
                                             <li class="active"><i class="icon ion-compass"></i><span>Transfers</span></li>
                                         </ul>
                                         <div class="package_btn text-center">
-                                            <a href="#quote_modal"  data-toggle="modal" data-target="#quote_modal" class="btn btn-default wid100">cuatomize and get quotes</a>
+                                            <a href="#inquiryModal"  data-toggle="modal" data-target="#inquiryModal" class="btn btn-default wid100">cuatomize and get quotes</a>
                                         </div>
                                     </div>  
                                 </div>
@@ -58,28 +72,7 @@
                             <h3 class="package_desc_title">Package Description</h3>
                             <div class="package_content">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    {{$package_details->description}}
                                 </p>
                             </div>
                         </div>
@@ -140,9 +133,8 @@
                 </div>
             </div>
         </section>
-        
-        <?php include "footer.php"; ?>
-
+@endsection
+@section('script')
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
             $(function(){
@@ -165,5 +157,4 @@
                 });                    
             });
         </script>
-    </body>
-</html>
+@endsection

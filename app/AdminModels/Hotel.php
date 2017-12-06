@@ -10,7 +10,7 @@ class Hotel extends Model
 {
     //
     protected $fillable = [
-        'id', 'name', 'type', 'state_id', 'city_id', 'audit_created_date', 'audit_updated_date', 'audit_created_by', 'audit_updated_by', 'audit_ip', 'total_rooms', 'available_rooms'
+        'id', 'name', 'type', 'state_id', 'city_id', 'audit_created_date', 'audit_updated_date', 'audit_created_by', 'audit_updated_by', 'audit_ip', 'total_rooms', 'available_rooms', 'hotel_image_path'
     ];
 
     protected $table = 'hotel';
@@ -23,11 +23,12 @@ class Hotel extends Model
 
     public static function getSingleColumnData($addressId, $columnName){
         $profileObj = DB::table('hotel')->where('id', $addressId)->select($columnName)->first();
+        return $profileObj->$columnName;
     }
 
     public static function get(){
         $data = DB::table('hotel')
-            ->select('id', 'name', 'type', 'state_id', 'city_id', 'total_rooms', 'available_rooms')
+            ->select('id', 'name', 'type', 'state_id', 'city_id', 'total_rooms', 'available_rooms', 'hotel_image_path')
             ->get();
 
         return $data;
@@ -35,7 +36,7 @@ class Hotel extends Model
 
     public static function getById($id){
         $data = DB::table('hotel')
-            ->select('id', 'name', 'type', 'state_id', 'city_id', 'total_rooms', 'available_rooms')
+            ->select('id', 'name', 'type', 'state_id', 'city_id', 'total_rooms', 'available_rooms', 'hotel_image_path')
             ->where('id', '=', $id)
             ->get();
 
@@ -48,6 +49,7 @@ class Hotel extends Model
             'type' 	                => $data['type'],
             'state_id'              => $data['state_id'],
             'city_id'               => $data['city_id'],
+            'hotel_image_path'      => $data['hotel_image_path'],
             'audit_created_date'    => date('Y-m-d H:i:s'),
             'audit_created_by'      => '1',
             'audit_ip'              => Request::ip()
@@ -67,6 +69,7 @@ class Hotel extends Model
                 'type'                  => $data['type'],
                 'state_id'              => $data['state_id'],
                 'city_id'               => $data['city_id'],
+                'hotel_image_path'      => $data['hotel_image_path'],
                 'audit_updated_date'    => date('Y-m-d H:i:s'),
                 'audit_updated_by'      => '1',
                 'audit_ip'              => Request::ip()

@@ -1,4 +1,4 @@
-﻿/*! jQuery UI - v1.12.1 - 2016-09-14
+/*! jQuery UI - v1.12.1 - 2016-09-14
 * http://jqueryui.com
 * Includes: core.css, accordion.css, autocomplete.css, menu.css, button.css, controlgroup.css, checkboxradio.css, datepicker.css, dialog.css, draggable.css, resizable.css, progressbar.css, selectable.css, selectmenu.css, slider.css, sortable.css, spinner.css, tabs.css, tooltip.css, theme.css
 * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Arial%2CHelvetica%2Csans-serif&fsDefault=1em&fwDefault=normal&cornerRadius=3px&bgColorHeader=e9e9e9&bgTextureHeader=flat&borderColorHeader=dddddd&fcHeader=333333&iconColorHeader=444444&bgColorContent=ffffff&bgTextureContent=flat&borderColorContent=dddddd&fcContent=333333&iconColorContent=444444&bgColorDefault=f6f6f6&bgTextureDefault=flat&borderColorDefault=c5c5c5&fcDefault=454545&iconColorDefault=777777&bgColorHover=ededed&bgTextureHover=flat&borderColorHover=cccccc&fcHover=2b2b2b&iconColorHover=555555&bgColorActive=007fff&bgTextureActive=flat&borderColorActive=003eff&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=fffa90&bgTextureHighlight=flat&borderColorHighlight=dad55e&fcHighlight=777620&iconColorHighlight=777620&bgColorError=fddfdf&bgTextureError=flat&borderColorError=f1a899&fcError=5f3f3f&iconColorError=cc0000&bgColorOverlay=aaaaaa&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=666666&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=5px&offsetTopShadow=0px&offsetLeftShadow=0px&cornerRadiusShadow=8px
@@ -229,8 +229,8 @@
     font-weight: 900;
 }
 
-.text-ff414d {
-    color: #ff414d
+.text-3071ae {
+    color: #3071ae
 }
 
 .text-002d40 {
@@ -329,7 +329,7 @@ p, ul, ol {
 }
 
 a {
-    color: #ff414d;
+    color: #3071ae;
     text-decoration: none;
     transition: all 0.6s ease;
     -webkit-transition: all 0.6s ease;
@@ -338,7 +338,7 @@ a {
 a:hover,
 a:focus,
 a:active {
-    color: #ff414d;
+    color: #3071ae;
     text-decoration: none;
 }
 
@@ -525,9 +525,9 @@ label {
 
 .navbar {
     border: 0;
-    border-bottom: 1px solid #d70043;
+    border-bottom: 1px solid #03529d;
     border-radius: 0;
-    background: #d70043;
+    background: #03529d;
     margin-bottom: 0;
 }
 
@@ -546,7 +546,7 @@ label {
 
 .nav>li>a:focus, .nav>li>a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     text-decoration: none;
-    background-color: #d70043;
+    background-color: #03529d;
     color: #ffffff;
     border-bottom: 2px solid;
 }
@@ -569,11 +569,11 @@ label {
     top: 0;
     min-height: 45px;
     right: 0;
-    background: #d70043;
+    background: #03529d;
     color: #fff;
     font-size: 22px;
     padding: 0px 15px;
-    border: #d70043;
+    border: #03529d;
     text-align: center;
 }
 
@@ -595,7 +595,7 @@ label {
 }
 
 .topbar_menu>li.dropdown>a{
-    color: #d70043;
+    color: #03529d;
     border-left: 2px solid #00d9db;
     padding-left: 35px;
     line-height: 10px;
@@ -723,8 +723,8 @@ label {
 
 .btn-default {
     color: #fff;
-    background-color: #ff414d;
-    border-color: #ff414d;
+    background-color: #3071ae;
+    border-color: #3071ae;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -734,7 +734,7 @@ label {
 
 .btn-default.btn-bordered {
     background: transparent;
-    color: #ff414d;
+    color: #3071ae;
 }
 
 .table-top-btn {
@@ -759,7 +759,7 @@ label {
 
 .table-btns>li>a {
     font-size: 16px;
-    border: 1px solid #ff414d;
+    border: 1px solid #3071ae;
     width: 30px;
     height: 30px;
     display: block;
@@ -983,7 +983,7 @@ label {
 
 .daterangepicker td.active,
 .daterangepicker td.active:hover {
-    background-color: #ff414d;
+    background-color: #3071ae;
     border-color: transparent;
     color: #fff;
 }
@@ -1033,7 +1033,7 @@ label {
 }
 
 .daterangepicker .input-mini.active {
-    border: 1px solid #ff414d;
+    border: 1px solid #3071ae;
     border-radius: 0;
 }
 
@@ -1096,14 +1096,14 @@ label {
 }
 
 .ranges li:hover {
-    background-color: #ff414d;
-    border: 1px solid #ff414d;
+    background-color: #3071ae;
+    border: 1px solid #3071ae;
     color: #fff;
 }
 
 .ranges li.active {
-    background-color: #ff414d;
-    border: 1px solid #ff414d;
+    background-color: #3071ae;
+    border: 1px solid #3071ae;
     color: #fff;
 }
 
@@ -1236,24 +1236,41 @@ label {
 
 .home-banner {
     height: calc(100% - 158px);
-    background: url(../img/charlie-costello-301722.jpg) no-repeat;
+    background: url(../img/tour/journee-10.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.search_filter h1{
-    font-size: 23px;
-    line-height: 1.3;
+.search_filter h1 {
+    font-size: 40px;
+    line-height: 1.2;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-top: 0;
     margin-bottom: 35px;
+    color: #333;
+    font-weight: 700;
+}
+
+.home_search_panel {
+	margin-left: 0;
+}
+
+.home_search_panel li:first-child {
+	width: 40%;
+}
+
+.home_search_panel li {
+	width: 20%;
+	margin-left: -5px;
+	padding: 0;
+	vertical-align: bottom;
 }
 
 .search_filter {
-    max-width: 500px;
-    margin-top: auto;
-    background: #fff;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.48);
     padding: 40px;
 }
 
@@ -1596,7 +1613,7 @@ label {
 }
 
 .star_rating>li.active {
-    color: #d70043;
+    color: #03529d;
 }
 
 .inclusions_filter > li .icon {
@@ -1634,7 +1651,7 @@ label {
 }
 
 .packages_found {
-    color: #d70043;
+    color: #03529d;
     font-weight: 600;
 }
 
@@ -1701,7 +1718,7 @@ label {
 
 .package_price > span {
     font-size: 25px;
-    color: #ff414d;
+    color: #3071ae;
     display: block;
     font-style: normal;
     font-weight: 700;
@@ -1797,4 +1814,158 @@ label {
 .package_btn .btn-default:focus:after {
     opacity: 1;
     color: #333;
+}
+
+/* Package Detail */
+
+.detail_name {
+    font-size: 30px;
+    margin-top: 0;
+    font-weight: 700;
+    text-transform: capitalize;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    line-height: 1.5;
+}
+
+.detail_name span {
+    font-size: 15px;
+    font-weight: 400;
+    display: block;
+    /* line-height: 1.9; */
+    color: #555;
+    text-transform: capitalize;
+}
+
+.startin_text {
+    display: block;
+    line-height: 1;
+    color: #9d9d9d;
+    font-weight: 300;
+}
+
+span.detail_price {
+    font-size: 34px;
+    font-weight: 500;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: bottom;
+    color: #03529d;
+    line-height: 1;
+}
+
+.detail_discount {
+    font-size: 13px;
+    text-transform: uppercase;
+    background: #ccc;
+    color: #fff;
+    display: inline-block;
+    padding: 2px 11px;
+    border-radius: 15px;
+}
+
+.per_person {
+    font-weight: 700;
+}
+
+.detail_package_pricing {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.package_inclusions.detail_package_inclusions > li {
+    padding: 10px 15px;
+    font-size: 12px;
+}   
+
+.quote_modal .modal-body {
+    padding: 25px;
+}
+
+.quote_modal .title {
+    font-family: 'Proza Libre', sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 0;
+}
+
+.quote_modal button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    font-size: 29px;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-weight: 400;
+    z-index: 99;
+}
+
+.quote_form label {
+    font-weight: 700;
+}
+
+.quote_form .form-group {
+    margin-bottom: 10px;
+}
+
+.package_desc_title {
+    font-size: 26px;
+    font-weight: 700;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.package_content {
+    font-size: 15px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+}
+
+.package_content p:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.faq_accordian .panel-heading {
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+}
+
+.faq_accordian .panel-body {
+    border: 0 !important;
+    padding-left: 35px;
+    padding-top: 0;
+}
+
+.faq_accordian .panel-heading a {
+    padding: 15px 0px;
+    display: block;
+    font-weight: 700;
+    position: relative;
+    padding-left: 35px;
+} 
+
+.faq_accordian .panel-heading a:after {
+    content: 'Q';
+    position: absolute;
+    left: 0;
+    font-weight: 300;
+    font-size: 20px;
+    top: 12px;
+    color: #03529d;
+}
+
+.faq_accordian.panel-group .panel {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    margin: 0;
 }

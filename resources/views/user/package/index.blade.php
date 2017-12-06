@@ -1,5 +1,5 @@
 @extends('user.layouts.master')
-@section('title','User Login')
+@section('title','Packages | Travel')
 @section('style')
 <!--page level style-->
 @endsection
@@ -46,29 +46,34 @@
                         </div>
                         <div class="package_wrapper">
                             <div class="row">
-                                <?php 
-                                    for ($x = 0; $x <= 5; $x++) {
-                                ?>
+                                @php
+                                    if(count($package_details)>0){
+                                    foreach($package_details as $row){
+                                @endphp
                                     <div class="col-md-6 package_box">
                                         <div class="package_main_box">
                                             <div class="package_img">
-                                                <a href="packagedesc.php"> <img src="https://placeimg.com/200/200/any" height="200" width="200" class="img-responsive wid100"></a>
+                                                <a href='{{url("/packagedetails/$row->id")}}'> <img src="https://placeimg.com/200/200/any" height="200" width="200" class="img-responsive wid100"></a>
                                             </div>
                                             <div class="package_details">
-                                                <a href="packagedesc.php"><h3 class="package_name">Lorem ipsum donor sit amet</h3></a>
+                                                <a href='{{url("/packagedetails/$row->id")}}'><h3 class="package_name">{{$row->name}}</h3></a>
                                                 <ul class="list-inline package_features">
-                                                    <li><p class="package_duration">6 Days and 5 Nights</p></li>
+                                                    <li><p class="package_duration">{{$row->days}} {{($row->days==1)?'Day':'Days'}} and {{$row->nights}} {{($row->nights==1)?'Night':'Nights'}}</p></li>
                                                     <li><p class="package_sharing">Per Person Twin Sharing</p></li>
                                                 </ul>
                                                 <ul class="package_pricing list-inline">
-                                                    <li><p class="package_price">Starting From: <span>Rs. 15,000</span></p></li>
+                                                    <li><p class="package_price">Starting From: <span>Rs. {{$row->price}}</span></p></li>
                                                     <li><p class="package_discount">5% off</p></li>
                                                 </ul>
                                                 <ul class="list-inline package_hotel_include">
                                                     <li><p class="package_hotel">Hotel Included:</p></li>
-                                                    <li><i class="ion-checkmark-circled active"></i> 5 star</li>
-                                                    <li>4 star</li>
-                                                    <li>3 star</li>
+                                                    @php
+                                                    foreach($Hotel_types as $row1){
+                                                    @endphp
+                                                    <!--<li><i class="ion-checkmark-circled active"></i> 5 star</li>-->
+                                                    <li>{{$row1->type}}</li>
+                                                    @php
+                                                    } @endphp
                                                 </ul>
                                                 
                                                 <ul class="list-inline package_inclusions">
@@ -78,15 +83,15 @@
                                                     <li class="active"><i class="icon ion-ios-glasses"></i><span>Sightseeing</span></li>
                                                 </ul>
                                                 <div class="package_btn text-center">
-                                                    <a href="packagedesc.php" class="btn btn-default">View Details</a>
+                                                    <a href='{{url("/packagedetails/$row->id")}}' class="btn btn-default">View Details</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                <?php
+                                @php
                                     } 
-                                ?>
+                                    }
+                                @endphp
                             </div>
                         </div>
                     </div>

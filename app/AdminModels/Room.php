@@ -32,7 +32,7 @@ class Room extends Model
 
     public static function getSingleColumnData($addressId, $columnName){
         $profileObj = DB::table('room')->where('id', $addressId)->select($columnName)->first();
-        return $profileObj;
+        return $profileObj->$columnName;
     }
 
     public static function get(){

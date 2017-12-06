@@ -25,7 +25,7 @@ $room_data = Room::getByHotelId($hotel_data->id);
                 <h1 class="title space-bot-0">Edit {!! $hotel_data->name !!}</h1>
             </div>
             <div class="col-md-6 text-right">
-                <a href="" class="btn btn-default table-top-btn"><i class="ion-plus-round"></i> add hotel</a>
+                <a href="{{ url('/admin/addHotel') }}" class="btn btn-default table-top-btn"><i class="ion-plus-round"></i> add hotel</a>
             </div>
         </div>
         <hr>

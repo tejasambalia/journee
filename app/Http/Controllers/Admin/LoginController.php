@@ -31,7 +31,7 @@ class LoginController extends Controller
         $data = $request->only('username', 'password');
         $username = $request->get('username');
         $password = $request->get('password');
-        $count=Users::where(array('username'=>"$username",'password'=>"$password"))->count();   
+        $count=Users::where(array('username'=>"$username",'password'=>"$password"))->count();
         if($count>0)
         {
             return redirect('/admin/hotel')->with('success_msg', 'Login successfully ');

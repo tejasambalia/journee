@@ -25,6 +25,11 @@ class PackageRoom extends Model
         $profileObj = DB::table('package_room')->where('id', $addressId)->select($columnName)->first();
     }
 
+    public static function getPackageRoom($_hotel_id){
+        $obj = DB::table('package_room')->where('package_hotel_id', $_hotel_id)->get();
+        return $obj;
+    }
+
     public static function get(){
         $data = DB::table('package_room')
             ->select('id', 'package_hotel_id', 'room_id')

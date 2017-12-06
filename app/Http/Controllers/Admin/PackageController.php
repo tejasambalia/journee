@@ -101,11 +101,11 @@ class PackageController extends Controller
     }
 
     public function viewPackage($id){
-
+        return view('admin.package.viewPackage')->with(array('id' => $id));
     }
 
     public function editPackage($id){
-
+        return view('admin.package.editPackage')->with(array('id' => $id));
     }
 
     public function deletePackage($id){

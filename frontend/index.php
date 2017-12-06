@@ -14,24 +14,31 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="search_filter">
-                                    <h1>Find an exceptional hotel & enjoy great benefits</h1>
+                                    <h1>Find an exceptional hotel <br> & enjoy great benefits</h1>
                                     <form class="custom_form">
-                                        <div class="form-group">
-                                            <input type="search" class="form-control" placeholder="Where do you want to go?" name="">
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xs-6 datepicker_bg">
-                                                <input type="text" class="form-control" id="from" placeholder="Check In" name="">
-                                            </div>
-                                            <div class="form-group col-xs-6 datepicker_bg">
-                                                <input type="text" class="form-control" id="to" placeholder="Depart" name="">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-12">
-                                                <button type="submit" class="btn btn-default wid100">Search</button>
-                                            </div>
-                                        </div>
+                                        <ul class="list-inline home_search_panel">
+                                            <li>
+                                                <div class="form-group">
+                                                    <input type="search" class="form-control" placeholder="Where do you want to go?" name="">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group datepicker_bg">
+                                                    <input type="text" class="form-control" id="from" placeholder="Check In" name="">
+                                                </div>
+                                            </li>
+                                            <li>                                                
+                                                <div class="form-group datepicker_bg">
+                                                    <input type="text" class="form-control" id="to" placeholder="Depart" name="">
+                                                </div>   
+                                            </li>
+                                            <li>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-default wid100">Explore us</button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <p>Want package customized just for you? <a href="#quote_modal"  data-toggle="modal" data-target="#quote_modal">Click here!</a></p>
                                     </form>            
                                 </div>
                             </div>
