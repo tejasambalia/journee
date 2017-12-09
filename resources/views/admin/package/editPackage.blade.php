@@ -92,6 +92,8 @@ $hotels = Hotel::getDropDownData();
                                 <div id="availability" class="date_range_picker" class="pull-right">
                                     <i class="ion-calendar"></i> <span></span> <i class="ion-arrow-down-b pull-right" aria-hidden="true"></i>
                                 </div>
+                                <input type="hidden" id="available_start_date" name="available_start_date">
+                                <input type="hidden" id="available_end_date" name="available_end_date">
                             </div>
                             <div class="col-sm-4">
                                 <label>Upload Image:</label>

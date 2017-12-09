@@ -51,6 +51,8 @@
 
         function cb(start, end) {
             $('#availability span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $('#available_start_date').val(start.format('YYYY-M-DD'));
+            $('#available_end_date').val(end.format('YYYY-M-DD'));
         }
 
         $('#availability').daterangepicker({
