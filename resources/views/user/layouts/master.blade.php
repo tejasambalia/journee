@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="navbar-brand">
-                                <img src="https://placeimg.com/250/75/any" class="img-responsive">
+                                <img src="{!! url('/assets/img/logo.png') !!}" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-md-4">
