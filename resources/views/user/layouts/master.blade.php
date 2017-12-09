@@ -76,7 +76,7 @@
                                 <li><a href="{{url('/')}}">Home</a></li>
                                 <li><a href="{{url('/aboutus')}}">About Us</a></li>
                                 <li><a href="{{url('/package')}}">Packages</a></li>
-                                <li><a href="{{url('/')}}">Destinations</a></li>
+                                <!-- <li><a href="{{url('/')}}">Destinations</a></li> -->
                                 <li><a href="#inquiryModal" data-toggle="modal" data-target="#inquiryModal">Inquiry</a></li>
                                 
                             </ul>
