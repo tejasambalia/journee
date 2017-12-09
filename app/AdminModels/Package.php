@@ -10,7 +10,7 @@ class Package extends Model
 {
     //
     protected $fillable = [
-        'id', 'name', 'active', 'description', 'price', 'audit_created_date', 'audit_updated_date', 'audit_created_by', 'audit_updated_by', 'audit_ip', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date'
+        'id', 'name', 'active', 'description', 'price', 'audit_created_date', 'audit_updated_date', 'audit_created_by', 'audit_updated_by', 'audit_ip', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone'
     ];
 
     protected $table = 'package';
@@ -27,7 +27,7 @@ class Package extends Model
 
     public static function get(){
         $data = DB::table('package')
-            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date')
+            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone')
             ->get();
 
         return $data;
@@ -35,7 +35,7 @@ class Package extends Model
 
     public static function getById($id){
         $data = DB::table('package')
-            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date')
+            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone')
             ->where('id', '=', $id)
             ->get();
 
@@ -57,6 +57,7 @@ class Package extends Model
             'city'                  => $data['city'],
             'available_start_date'  => $data['available_start_date'],
             'available_end_date'    => $data['available_end_date'],
+            'zone'                  => $data['zone'],
             'audit_created_date'    => date('Y-m-d H:i:s'),
             'audit_created_by'      => '1',
             'audit_ip'              => Request::ip()
@@ -82,6 +83,7 @@ class Package extends Model
                 'city'                  => $data['city'],
                 'available_start_date'  => $data['available_start_date'],
                 'available_end_date'    => $data['available_end_date'],
+                'zone'                  => $data['zone'],
                 'audit_updated_date'    => date('Y-m-d H:i:s'),
                 'audit_updated_by'      => '1',
                 'audit_ip'              => Request::ip()

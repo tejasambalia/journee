@@ -20,6 +20,7 @@ use App\Classes\DiscountType;
 use App\AdminModels\PackageCategory;
 use App\AdminModels\Coupon;
 use App\Classes\DropDown;
+use App\Classes\Zone;
 
 $package_data = Package::findById($id);
 $package_hotel = PackageHotel::getPackageHotel($id);
@@ -124,6 +125,17 @@ $hotels = Hotel::getDropDownData();
                             <div class="col-sm-3 form-group">
                                 <label>Discount Amount:</label>
                                 <input type="number" class="form-control" min="0" name="discount_amount" value="{!! $package_data->discount_amount !!}">
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <label>Zone:</label>
+                                <select class="form-control" name="zone">
+                                    <?php
+                                        $zone_obj = new Zone;
+                                        $zone_data = $zone_obj->name();
+                                        $DropDown = $obj->DropDown($zone_data, $package_data->zone);
+                                        echo $DropDown;
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row">

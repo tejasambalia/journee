@@ -84,6 +84,7 @@ class PackageController extends Controller
         $package_data['description'] = $data['description'];
         $package_data['available_start_date'] = $data['available_start_date'];
         $package_data['available_end_date'] = $data['available_end_date'];
+        $package_data['zone'] = $data['zone'];
 
         $package_id = Package::add($package_data);
 
@@ -120,6 +121,7 @@ class PackageController extends Controller
         $package_data['description'] = $data['description'];
         $package_data['available_start_date'] = $data['available_start_date'];
         $package_data['available_end_date'] = $data['available_end_date'];
+        $package_data['zone'] = $data['zone'];
 
         Package::edit($package_data);
 
