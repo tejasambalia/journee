@@ -100,6 +100,40 @@ class PackageController extends Controller
         return redirect('/admin/package');
     }
 
+    public function handleEditPackage(Request $request){
+        $data = $request->all();
+
+        //edit package details
+        $package_data = array();
+        $package_data['id'] = $data['id'];
+        $package_data['name'] = $data['name'];
+        $package_data['price'] = $data['price'];
+        $package_data['category'] = $data['category'];
+        $package_data['days'] = $data['days'];
+        $package_data['nights'] = $data['nights'];
+        $package_data['city'] = $data['city'];
+        $package_data['coupon_id'] = $data['coupon_id'];
+        $package_data['discount_type'] = $data['discount_type'];
+        $package_data['discount_amount'] = $data['discount_amount'];
+        $package_data['description'] = $data['description'];
+
+        Package::edit($package_data);
+
+        //edit hotel details
+        $hotel_data['id'] = $data['hotel_id'];
+        $hotel_data['hotel_id'] = $data['package_hotel'];
+
+        PackageHotel::edit($hotel_data);
+
+        //edit room details
+        $room_data['id'] = $data['room_id'];
+        $room_data['room_id'] = $data['package_room'];
+
+        PackageRoom::edit($room_data);
+
+        return redirect('/admin/package');
+    }
+
     public function viewPackage($id){
         return view('admin.package.viewPackage')->with(array('id' => $id));
     }

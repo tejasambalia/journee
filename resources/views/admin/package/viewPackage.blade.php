@@ -29,9 +29,6 @@ $package_hotel = PackageHotel::getPackageHotel($id);
             <div class="col-md-6">
                 <h1 class="title space-bot-0">View {!! $package_data->name !!}</h1>
             </div>
-            <div class="col-md-6 text-right">
-                <a href="edit-package.php" class="btn btn-default table-top-btn"><i class="ion-plus-round"></i> edit Package</a>
-            </div>
         </div>
         <hr>
         <div class="row">

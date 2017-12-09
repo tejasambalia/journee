@@ -49,6 +49,7 @@ Route::get('/admin/addPackage', 'Admin\PackageController@addPackage');
 Route::post('/admin/handleAddPackage', 'Admin\PackageController@handleAddPackage');
 Route::get('/admin/viewPackage/{id}', 'Admin\PackageController@viewPackage');
 Route::get('/admin/editPackage/{id}', 'Admin\PackageController@editPackage');
+Route::post('/admin/handleEditPackage', 'Admin\PackageController@handleEditPackage');
 Route::get('/admin/deletePackage/{id}', 'Admin\PackageController@deletePackage');
 //users
 Route::get('/admin/users', 'Admin\UsersController@user');

@@ -64,7 +64,6 @@ class PackageHotel extends Model
         DB::table('package_hotel')
             ->where('id', $data['id'])
             ->update([
-                'package_id'            => $data['package_id'],
                 'hotel_id'              => $data['hotel_id'],
                 'audit_updated_date'    => date('Y-m-d H:i:s'),
                 'audit_updated_by'      => '1',

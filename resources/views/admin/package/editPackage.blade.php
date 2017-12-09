@@ -19,9 +19,14 @@ use App\Classes\GuestAllowedCondition;
 use App\Classes\DiscountType;
 use App\AdminModels\PackageCategory;
 use App\AdminModels\Coupon;
+use App\Classes\DropDown;
 
 $package_data = Package::findById($id);
 $package_hotel = PackageHotel::getPackageHotel($id);
+$packageCategory = PackageCategory::get();
+$city = City::get();
+$coupon = Coupon::getActive();
+$hotels = Hotel::getDropDownData();
 ?>
 <section class="package-page">
     <div class="container">
@@ -36,34 +41,37 @@ $package_hotel = PackageHotel::getPackageHotel($id);
         <hr>
         <div class="row">
             <div class="col-md-12">
-                <form class="basic-form">
+                {!! Form::open(array('url' => '/admin/handleEditPackage', 'class' => 'basic-form', 'method' => 'post')) !!}
                     <div class="hotel_details">
                         <div class="row">
+                            <input type="hidden" name="id" value="{!! $package_data->id !!}">
                             <div class="col-sm-3 form-group">
                                 <label>Name:</label>
-                                <input type="text" class="form-control" placeholder="" name="" value="{!! $package_data->name !!}">
+                                <input type="text" class="form-control" placeholder="" name="name" value="{!! $package_data->name !!}">
                             </div>
                             <div class="col-sm-3 form-group">
                                 <label>Price:</label>
-                                <input type="number" min="0" class="form-control" placeholder="" name="" value="{!! $package_data->price !!}">
+                                <input type="number" min="0" class="form-control" placeholder="" name="price" value="{!! $package_data->price !!}">
                             </div>
                             <div class="col-sm-3 form-group">
                                 <label>Category:</label>
-                                <select class="form-control">
-                                    <option>Select Option</option>
-                                    <option>5 Star</option>
-                                    <option>4 Star</option>
+                                <select class="form-control" name='category'>
+                                    <?php
+                                    $obj = new DropDown;
+                                    $DropDown = $obj->ObjDropDown($packageCategory, $package_data->category);
+                                    echo $DropDown;
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <div class="row">
                                     <div class="col-xs-6 form-group">
                                         <label>Days:</label>
-                                        <input type="number" min="0" class="form-control" name="">
+                                        <input type="number" min="0" class="form-control" name="days" value="{!! $package_data->days !!}">
                                     </div>
                                     <div class="col-xs-6 form-group">
                                         <label>Nights:</label>
-                                        <input type="number" min="0" class="form-control" name="">
+                                        <input type="number" min="0" class="form-control" name="nights" value="{!! $package_data->nights !!}">
                                     </div>
                                 </div>
                             </div>
@@ -71,10 +79,12 @@ $package_hotel = PackageHotel::getPackageHotel($id);
                         <div class="row">
                             <div class="col-sm-4 form-group">
                                 <label>City:</label>
-                                <select class="form-control">
-                                    <option>Select Option</option>
-                                    <option>Ahmedabad</option>
-                                    <option>Rajkot</option>
+                                <select class="form-control" name="city">
+                                    <?php
+                                    $obj = new DropDown;
+                                    $DropDown = $obj->ObjDropDown($city, $package_data->city);
+                                    echo $DropDown;
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
@@ -85,39 +95,39 @@ $package_hotel = PackageHotel::getPackageHotel($id);
                             </div>
                             <div class="col-sm-4">
                                 <label>Upload Image:</label>
-                                <input type="file" class="form-control" name="">
+                                <input type="file" class="form-control" name="upload_image">
                             </div>
                         </div>              
                         <div class="row">
                             <div class="col-sm-3 form-group">
                                 <label>Coupon:</label>
-                                <select class="form-control">
-                                    <option>Select Option</option>
-                                    <option>Coupan 1</option>
-                                    <option>Coupan 2</option>
+                                <select class="form-control" name="coupon_id">
+                                    <?php
+                                        $obj = new DropDown;
+                                        $DropDown = $obj->ObjDropDown($coupon, $package_data->coupon_id);
+                                        echo $DropDown;
+                                    ?>
                                 </select>
                             </div> 
                             <div class="col-sm-3 form-group">
                                 <label>Discount Type:</label>
-                                <select class="form-control">
-                                    <option>Select Option</option>
-                                    <option>Discount 1</option>
-                                    <option>Discount 2</option>
+                                <select class="form-control" name="discount_type">
+                                    <?php
+                                        $data = array('1'=>'%','2'=> 'Flat');
+                                        $DropDown = $obj->DropDown($data, $package_data->discount_type);
+                                        echo $DropDown;
+                                    ?>
                                 </select>
                             </div> 
                             <div class="col-sm-3 form-group">
                                 <label>Discount Amount:</label>
-                                <input type="number" class="form-control" min="0" name="">
-                            </div> 
-                            <div class="col-sm-3 form-group">
-                                <label>Discount Price:</label>
-                                <input type="number" class="form-control" min="0" name="">
-                            </div> 
+                                <input type="number" class="form-control" min="0" name="discount_amount" value="{!! $package_data->discount_amount !!}">
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label>Package Description:</label>
-                                <textarea class="form-control" rows="5"></textarea>
+                                <textarea class="form-control" rows="5" name="description">{!! $package_data->description !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -137,17 +147,42 @@ $package_hotel = PackageHotel::getPackageHotel($id);
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>Select Hotel:</label>
-                                <select class="form-control">
-                                    <option>Hotel 1</option>
-                                    <option>Hotel 2</option>
+                                <input type="hidden" name="hotel_id" value="{!! $package_hotel[0]->id !!}">
+                                <select class="form-control" name="package_hotel" id="hotel_id" onchange="get_hotel_rooms()">
+                                    @foreach($package_hotel as $p_hotel)
+                                    <?php
+                                        $DropDown = $obj->ObjDropDown($hotels, $p_hotel->hotel_id);
+                                        echo $DropDown;
+                                    ?>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Select Room:</label>
-                                <select class="form-control">
-                                    <option>Room 1</option>
-                                    <option>Room 2</option>
+                                <select class="form-control" id="display_room" name="package_room">
+                                    @foreach($package_hotel as $p_hotel)
+                                        <?php
+                                            $rooms = Room::getDropDownData($p_hotel->hotel_id);
+                                            $package_room = PackageRoom::getPackageRoom($p_hotel->id);
+                                        ?>
+                                        @foreach($package_room as $p_room)
+                                            <?php
+                                                $DropDown = $obj->ObjDropDown($rooms, $p_room->room_id);
+                                                echo $DropDown;
+                                            ?>
+                                        @endforeach
+                                    @endforeach
                                 </select>
+                                <input type="hidden" name="room_id" value="{!! $package_room[0]->id !!}">
+                            </div>
+                            <div class="submit_btn_block">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="btn btn-default">Save Package</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>  
@@ -156,7 +191,20 @@ $package_hotel = PackageHotel::getPackageHotel($id);
         </div>
     </div>  
 </section>
+<script type="text/javascript">
+    function get_hotel_rooms(){
+        var hotel_id = $('#hotel_id').val();
 
+        $.ajax({
+            type: "GET",
+            url: "/travel/admin/fetchroom",
+            data: {hotel_id:hotel_id},
+            success: function(msg) {  
+                $("#display_room").html(msg);
+            }
+        });
+    }
+</script>
 @endsection
 @section('script')
 <!--page level script-->
