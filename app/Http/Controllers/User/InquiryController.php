@@ -27,17 +27,18 @@ class InquiryController extends Controller {
                     'name'=>$name,
                     'contact'=>$mobile_number,
                     'email'=>$email,
-                    'm_country_id'=>$country,
-                    'm_state_id'=>$state,
-                    'm_city_id'=>$city,
+                    'state'=>$state,
+                    'city'=>$city,
                     'description'=>$description,
+                    'status'=>'0'
                 );
                 DB::table('inquiry')->insert($data);
-                (new EmailNotification)->inquiry_mail(1,$data);
+                // (new EmailNotification)->inquiry_mail(1,$data);
                 return redirect('/')->with("success_msg","Your inquiry details submited successfully.");
             }
             return redirect('/')->with("error_msg","Please fill require filed");
         } catch (\Exception $ex) {
+            print_r($ex);die();
             return redirect('/')->with("error_msg","Something went wrong try again.");
         }
     }

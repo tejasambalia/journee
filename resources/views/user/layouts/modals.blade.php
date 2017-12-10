@@ -93,11 +93,11 @@
                     </div>
                     <div class="form-group">
                         {{ Form::label('state', 'Select State:') }}
-                        {{ Form::select('state', ['' => 'Select state'] ,'',array('class'=>'form-control','id'=>'state'))}}    
+                        {{ Form::select('state', ['' => 'Select state']+$countries ,'',array('class'=>'form-control','id'=>'state'))}}    
                     </div>
                     <div class="form-group">
                         {{ Form::label('city', 'Select City:') }}
-                        {{ Form::select('city', ['' => 'Select state'] ,'',array('class'=>'form-control','id'=>'city','required'))}}    
+                        {{ Form::select('city', ['' => 'Select state']+$countries ,'',array('class'=>'form-control','id'=>'city','required'))}}    
                     </div>                    
                     <div class="form-group">
                         {{ Form::label('email', 'Enter Description') }}

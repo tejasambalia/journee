@@ -54,7 +54,9 @@ Route::get('/admin/deletePackage/{id}', 'Admin\PackageController@deletePackage')
 //users
 Route::get('/admin/users', 'Admin\UsersController@user');
 //Inquiry
-Route::get('/admin/inquiry', 'Admin\InquiryControllter@inquiry');
+Route::get('/admin/inquiry', 'Admin\InquiryController@inquiry');
+Route::get('/admin/activateInquiry/{id}', 'Admin\InquiryController@activate');
+Route::get('/admin/closeInquiry/{id}', 'Admin\InquiryController@close');
 //Orders
 Route::get('/admin/order', 'Admin\OrderController@order');
 //Report
