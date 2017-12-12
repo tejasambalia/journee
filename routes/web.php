@@ -53,6 +53,11 @@ Route::post('/admin/handleEditPackage', 'Admin\PackageController@handleEditPacka
 Route::get('/admin/deletePackage/{id}', 'Admin\PackageController@deletePackage');
 //users
 Route::get('/admin/users', 'Admin\UsersController@user');
+Route::get('/admin/addUser', 'Admin\UsersController@addUser');
+Route::post('/admin/handleAddUser', 'Admin\UsersController@handleAddUser');
+Route::get('/admin/deleteUser/{id}', 'Admin\UsersController@deleteUser');
+Route::get('/admin/editUser/{id}', 'Admin\UsersController@editUser');
+Route::post('/admin/handleEditUser', 'Admin\UsersController@handleEditUser');
 //Inquiry
 Route::get('/admin/inquiry', 'Admin\InquiryController@inquiry');
 Route::get('/admin/activateInquiry/{id}', 'Admin\InquiryController@activate');
