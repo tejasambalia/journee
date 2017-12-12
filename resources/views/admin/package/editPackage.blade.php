@@ -161,6 +161,7 @@ $hotels = Hotel::getDropDownData();
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>Select Hotel:</label>
+                                @if(count($package_hotel)>0)
                                 <input type="hidden" name="hotel_id" value="{!! $package_hotel[0]->id !!}">
                                 <select class="form-control" name="package_hotel" id="hotel_id" onchange="get_hotel_rooms()">
                                     @foreach($package_hotel as $p_hotel)
@@ -170,6 +171,16 @@ $hotels = Hotel::getDropDownData();
                                     ?>
                                     @endforeach
                                 </select>
+                                @else
+                                <input type="hidden" name="hotel_id" value="">
+                                <select class="form-control" name="package_hotel" id="hotel_id" onchange="
+                                    get_hotel_rooms()">
+                                    <?php
+                                        $DropDown = $obj->ObjDropDown($hotels);
+                                        echo $DropDown;
+                                    ?>
+                                </select>
+                                @endif
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Select Room:</label>
@@ -187,7 +198,11 @@ $hotels = Hotel::getDropDownData();
                                         @endforeach
                                     @endforeach
                                 </select>
+                                @if(isset($package_room))
                                 <input type="hidden" name="room_id" value="{!! $package_room[0]->id !!}">
+                                @else
+                                <input type="hidden" name="room_id" value="">
+                                @endif
                             </div>
                             <div class="submit_btn_block">
                                 <div class="container">
