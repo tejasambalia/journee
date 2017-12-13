@@ -52,7 +52,7 @@ use App\AdminModels\City;
                                     <select class="form-control" name="state_id">
                                         <?php
                                             $stateData = State::get();
-                                            $DropDown = $obj->DropDown($stateData);
+                                            $DropDown = $obj->ObjDropDown($stateData);
                                             echo $DropDown;
                                         ?>
                                     </select>
@@ -62,7 +62,7 @@ use App\AdminModels\City;
                                     <select class="form-control" name="city_id">
                                         <?php
                                             $cityData = City::get();
-                                            $DropDown = $obj->DropDown($cityData);
+                                            $DropDown = $obj->ObjDropDown($cityData);
                                             echo $DropDown;
                                         ?>
                                     </select>
