@@ -117,5 +117,5 @@ use App\AdminModels\RoomType;
                 });
                 $("#amount").val( "Rs. " + $( "#slider-range" ).slider( "values", 0 ) + "  -  Rs. " + $( "#slider-range" ).slider( "values", 1 ) );
             });
-        </script>>
+        </script>
 @endsection

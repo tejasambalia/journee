@@ -183,7 +183,7 @@ $hotels = Hotel::getDropDownData();
 
             $.ajax({
                 type: "GET",
-                url: "/travel/admin/fetchroom",
+                url: "/admin/fetchroom",
                 data: {hotel_id:hotel_id},
                 success: function(msg) {  
                     $("#display_room").html(msg);
