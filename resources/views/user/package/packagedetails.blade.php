@@ -19,6 +19,21 @@
 @endif
 @php
 use App\AdminModels\City;
+use App\Classes\DiscountType;
+use App\AdminModels\Hotel;
+use App\AdminModels\Room;
+use App\AdminModels\PackageHotel;
+use App\AdminModels\PackageRoom;
+use App\AdminModels\RoomType;
+
+$hotel_id = PackageHotel::getPackageFirstHotel($package_details->id);
+$hotel_type = Hotel::getSingleColumnData($hotel_id->hotel_id, 'type');
+
+$room_id = PackageRoom::getPackageFirstRoom($hotel_id->id);
+$room_type_id = Room::getSingleColumnData($room_id->room_id, 'm_room_type_id');
+$room_type = RoomType::getSingleColumnData($room_type_id, 'name');
+
+$obj = new DiscountType;
 @endphp
  <section class="best_offers_sec">
             <div class="container">
@@ -28,36 +43,32 @@ use App\AdminModels\City;
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="package_img">
-                                        <img src="https://placeimg.com/400/300/any" class="img-responsive wid100">
+                                        <img src='{{url("$package_details->upload_image")}}' class="img-responsive wid100">
                                     </div>  
                                 </div>
                                 <div class="col-md-6">
                                     <div class="package_details">
-                                        <h3 class="detail_name">{{$package_details->name}} <span>{{($package_details->days==1)?'Day':'Days'}} and {{$package_details->nights}} {{($package_details->nights==1)?'Night':'Nights'}} | Customizable</span></h3>                                       
+                                        <h3 class="detail_name">{{$package_details->name}} <span>{{$package_details->days}} {{($package_details->days==1)?'Day':'Days'}} and {{$package_details->nights}} {{($package_details->nights==1)?'Night':'Nights'}} | Customizable</span></h3>                                       
                                         <ul class="list-inline package_hotel_include city_include">
                                             <li><p class="package_hotel">Cities:</p></li>
                                             <li>{{City::getSingleColumnData($package_details->id,'name')}}</li>
                                         </ul>
+                                        <ul class="list-inline package_hotel_include">
+                                            <li><p class="package_hotel">Zone:</p></li>
+                                            <li>{{$package_details->zone}}</li>
+                                        </ul>
                                         <ul class="detail_package_pricing list-unstyled">
-                                            <li><span class="startin_text">Starting From:</span> <span class="detail_price">Rs. {{$package_details->price}}</span> <span class="detail_discount">5% off</span> </li>
-                                            <li class="per_person">Per person on twin sharing</li>
+                                            <li><span class="startin_text">Starting From:</span> <span class="detail_price">Rs. {{$package_details->price}}</span> <span class="detail_discount">{{$package_details->discount_amount." ".$obj->name($package_details->discount_type)}} off</span> </li>
+                                            <li class="per_person">Room Type: {{$room_type}}</li>
                                         </ul>
                                         <ul class="list-inline package_hotel_include">
                                             <li><p class="package_hotel">Hotel Included:</p></li>
-                                            <!--<li><i class="ion-checkmark-circled active"></i> 5 star</li>-->
-                                            @php
-                                            foreach($Hotel_types as $row1){@endphp
-                                            <li>{{$row1->type}}</li>
-                                            @php }
-                                            @endphp
+                                            <li><i class="ion-checkmark-circled active"></i> {{$hotel_type}}</li>
                                         </ul> 
                                         <ul class="list-inline package_inclusions detail_package_inclusions">
                                             <li class="active"><i class="icon ion-fork"></i><span>Meals</span></li>
-                                            <li><i class="icon ion-plane"></i><span>Flights</span></li>
-                                            <li><i class="icon ion-android-bus"></i><span>Airport</span></li>
-                                            <li class="active"><i class="icon ion-ios-glasses"></i><span>Sightseeing</span></li>
-                                            <li class="active"><i class="icon ion-map"></i><span>City Tours</span></li>
-                                            <li class="active"><i class="icon ion-compass"></i><span>Transfers</span></li>
+                                            <li class="active"><i class="icon ion-ios-glasses"></i><span>WiFi</span></li>
+                                            <li class="active"><i class="icon ion-model-s"></i><span>Parking</span></li>
                                         </ul>
                                         <div class="package_btn text-center">
                                             <a href="#inquiryModal"  data-toggle="modal" data-target="#inquiryModal" class="btn btn-default wid100">cuatomize and get quotes</a>
