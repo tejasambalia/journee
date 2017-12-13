@@ -43,8 +43,8 @@ $room_data = Room::getByHotelId($hotel_data->id);
                                 <label>Type:</label>
                                 <?php
                                     $data = array(
-                                        '5 Start' => '5 Start',
-                                        '3 Start' => '3 Start'
+                                        '5 Star' => '5 Star',
+                                        '3 Star' => '3 Star'
                                         );
                                 ?>
                                 <select class="form-control" name="type">

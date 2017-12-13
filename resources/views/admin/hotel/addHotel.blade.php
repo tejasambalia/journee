@@ -8,6 +8,8 @@
 <?php
 use App\Classes\DropDown;
 use App\AdminModels\RoomType;
+use App\AdminModels\State;
+use App\AdminModels\City;
 ?>
     <section class="package-page">
         <div class="container">
@@ -31,8 +33,8 @@ use App\AdminModels\RoomType;
                                     <label>Type:</label>
                                     <?php
                                         $data = array(
-                                            '5 Start' => '5 Start',
-                                            '3 Start' => '3 Start'
+                                            '5 Star' => '5 Star',
+                                            '3 Star' => '3 Star'
                                             );
                                     ?>
                                     <select class="form-control" name="type">
@@ -49,8 +51,8 @@ use App\AdminModels\RoomType;
                                     <label>State:</label>
                                     <select class="form-control" name="state_id">
                                         <?php
-                                            $data = array('12'=>'Gujarat','28'=> 'Punjab');
-                                            $DropDown = $obj->DropDown($data);
+                                            $stateData = State::get();
+                                            $DropDown = $obj->DropDown($stateData);
                                             echo $DropDown;
                                         ?>
                                     </select>
@@ -59,8 +61,8 @@ use App\AdminModels\RoomType;
                                     <label>City:</label>
                                     <select class="form-control" name="city_id">
                                         <?php
-                                            $data = array('333'=>'Ahmedabad','349'=> 'Jamnagar');
-                                            $DropDown = $obj->DropDown($data);
+                                            $cityData = City::get();
+                                            $DropDown = $obj->DropDown($cityData);
                                             echo $DropDown;
                                         ?>
                                     </select>
