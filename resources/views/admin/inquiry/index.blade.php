@@ -7,6 +7,8 @@
 @section('content')
 <?php
 use App\AdminModels\Inquiry;
+use App\AdminModels\City;
+use App\AdminModels\State;
 $data = Inquiry::getInquiryList();
 ?>
     <section class="package-page">
@@ -43,7 +45,7 @@ $data = Inquiry::getInquiryList();
                                     <td>{!! $count !!}</td>
                                     <td>{!! $d->name !!}</td>
                                     <td>Ph: {!! $d->contact !!}<br>E-Mail: {!! $d->email !!}</td>
-                                    <td>City: {!! $d->city !!}<br>State: {!! $d->state !!}</td>
+                                    <td>City: {!! City::getSingleColumnData($d->city, 'name') !!}<br>State: {!! State::getSingleColumnData($d->state, 'name') !!}</td>
                                     <td>{!! $d->description !!}</td>
                                     <td>{!! Inquiry::getStatusName($d->status) !!}</td>
                                     <td>
@@ -67,7 +69,7 @@ $data = Inquiry::getInquiryList();
             </div>
         </div>  
     </section>
-	
+    
 @endsection
 @section('script')
 <!--page level script-->
