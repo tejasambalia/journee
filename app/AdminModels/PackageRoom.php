@@ -30,6 +30,11 @@ class PackageRoom extends Model
         return $obj;
     }
 
+    public static function getPackageFirstRoom($_hotel_id){
+        $obj = DB::table('package_room')->where('package_hotel_id', $_hotel_id)->first();
+        return $obj;   
+    }
+
     public static function get(){
         $data = DB::table('package_room')
             ->select('id', 'package_hotel_id', 'room_id')

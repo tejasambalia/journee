@@ -4,7 +4,14 @@
 <!--page level style-->
 @endsection
 <!--page content-->
-
+@php
+use App\Classes\DiscountType;
+use App\AdminModels\Hotel;
+use App\AdminModels\Room;
+use App\AdminModels\PackageHotel;
+use App\AdminModels\PackageRoom;
+use App\AdminModels\RoomType;
+@endphp
 @section('content')
 @if(session('error_msg'))      
 <div class="alert alert-danger alert-dismissable">
@@ -32,7 +39,7 @@
                             <div class="col-md-4">
                                 <form class="">
                                     <div class="text-right">
-                                        <p class="packages_found">6 Results Found</p>
+                                        <p class="packages_found">{{count($package_details)}} Results Found</p>
                                         <select class="form-control">
                                             <option>Relavant</option>
                                             <option>Popular</option>
@@ -49,38 +56,34 @@
                                 @php
                                     if(count($package_details)>0){
                                     foreach($package_details as $row){
+                                    $hotel_id = PackageHotel::getPackageFirstHotel($row->id);
+                                    $hotel_type = Hotel::getSingleColumnData($hotel_id->hotel_id, 'type');
+
+                                    $room_id = PackageRoom::getPackageFirstRoom($hotel_id->id);
+                                    $room_type_id = Room::getSingleColumnData($room_id->room_id, 'm_room_type_id');
+                                    $room_type = RoomType::getSingleColumnData($room_type_id, 'name');
                                 @endphp
                                     <div class="col-md-6 package_box">
                                         <div class="package_main_box">
                                             <div class="package_img">
-                                                <a href='{{url("/packagedetails/$row->id")}}'> <img src="https://placeimg.com/200/200/any" height="200" width="200" class="img-responsive wid100"></a>
+                                                <a href='{{url("/packagedetails/$row->id")}}'> <img src='{{url("$row->upload_image")}}' height="200" width="200" class="img-responsive wid100"></a>
                                             </div>
                                             <div class="package_details">
                                                 <a href='{{url("/packagedetails/$row->id")}}'><h3 class="package_name">{{$row->name}}</h3></a>
                                                 <ul class="list-inline package_features">
                                                     <li><p class="package_duration">{{$row->days}} {{($row->days==1)?'Day':'Days'}} and {{$row->nights}} {{($row->nights==1)?'Night':'Nights'}}</p></li>
-                                                    <li><p class="package_sharing">Per Person Twin Sharing</p></li>
+                                                    <li><p class="package_sharing">{{$room_type}}</p></li>
                                                 </ul>
                                                 <ul class="package_pricing list-inline">
                                                     <li><p class="package_price">Starting From: <span>Rs. {{$row->price}}</span></p></li>
-                                                    <li><p class="package_discount">5% off</p></li>
+                                                    @php
+                                                    $obj = new DiscountType;
+                                                    @endphp
+                                                    <li><p class="package_discount">{{$row->discount_amount." ".$obj->name($row->discount_type)}} off</p></li>
                                                 </ul>
                                                 <ul class="list-inline package_hotel_include">
                                                     <li><p class="package_hotel">Hotel Included:</p></li>
-                                                    @php
-                                                    foreach($Hotel_types as $row1){
-                                                    @endphp
-                                                    <!--<li><i class="ion-checkmark-circled active"></i> 5 star</li>-->
-                                                    <li>{{$row1->type}}</li>
-                                                    @php
-                                                    } @endphp
-                                                </ul>
-                                                
-                                                <ul class="list-inline package_inclusions">
-                                                    <li class="active"><i class="icon ion-fork"></i><span>Meals</span></li>
-                                                    <li><i class="icon ion-plane"></i><span>Flights</span></li>
-                                                    <li><i class="icon ion-android-bus"></i><span>Airport</span></li>
-                                                    <li class="active"><i class="icon ion-ios-glasses"></i><span>Sightseeing</span></li>
+                                                    <li><i class="ion-checkmark-circled active"></i> {{$hotel_type}}</li>
                                                 </ul>
                                                 <div class="package_btn text-center">
                                                     <a href='{{url("/packagedetails/$row->id")}}' class="btn btn-default">View Details</a>

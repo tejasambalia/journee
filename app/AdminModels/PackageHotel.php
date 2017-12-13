@@ -26,6 +26,11 @@ class PackageHotel extends Model
         return $profileObj;
     }
 
+    public static function getPackageFirstHotel($_package_id){
+        $obj = DB::table('package_hotel')->where('package_id', $_package_id)->first();
+        return $obj;
+    }
+
     public static function getPackageHotel($_package_id){
         $obj = DB::table('package_hotel')->where('package_id', $_package_id)->get();
         return $obj;
