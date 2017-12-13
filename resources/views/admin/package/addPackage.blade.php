@@ -30,7 +30,7 @@ $hotels = Hotel::getDropDownData();
             <hr>
             <div class="row">
                 <div class="col-md-12">
-                    {!! Form::open(array('url' => '/admin/handleAddPackage', 'class' => 'basic-form', 'method' => 'post')) !!}
+                    {!! Form::open(array('url' => '/admin/handleAddPackage', 'class' => 'basic-form', 'method' => 'post', 'enctype' => "multipart/form-data")) !!}
                         <div class="hotel_details">
                             <div class="row">
                                 <div class="col-sm-3 form-group">
@@ -85,7 +85,7 @@ $hotels = Hotel::getDropDownData();
                                 </div>
                                 <div class="col-sm-4">
                                     <label>Upload Image:</label>
-                                    <input type="file" class="form-control" name="upload_image">
+                                    {!! Form::file('upload_image', array('class' => 'form-control', 'required' => 'required')) !!}
                                 </div>
                             </div>              
                             <div class="row">

@@ -17,6 +17,8 @@ use App\AdminModels\Package;
 use App\Classes\ArrayClass;
 use App\AdminModels\PackageHotel;
 use App\AdminModels\PackageRoom;
+use App\Classes\General;
+use Image;
 
 class PackageController extends Controller
 {
@@ -70,6 +72,15 @@ class PackageController extends Controller
     public function handleAddPackage(Request $request){
         $data = $request->all();
 
+        //upload package image
+        $package_image = $request->file('upload_image');
+        $imagename = time().'_package.'.$package_image->getClientOriginalExtension();
+        $request->upload_image->move(public_path('img'), $imagename);
+
+        //generate package image path
+        $obj = new General;
+        $data['upload_image'] = $obj->getUserImagePath($imagename);
+
         //add package details
         $package_data = array();
         $package_data['name'] = $data['name'];
@@ -85,6 +96,7 @@ class PackageController extends Controller
         $package_data['available_start_date'] = $data['available_start_date'];
         $package_data['available_end_date'] = $data['available_end_date'];
         $package_data['zone'] = $data['zone'];
+        $package_data['upload_image'] = $data['upload_image'];
 
         $package_id = Package::add($package_data);
 

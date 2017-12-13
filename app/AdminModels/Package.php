@@ -55,6 +55,7 @@ class Package extends Model
             'days'                  => $data['days'],
             'nights'                => $data['nights'],
             'city'                  => $data['city'],
+            'upload_image'          => $data['upload_image'],
             'available_start_date'  => $data['available_start_date'],
             'available_end_date'    => $data['available_end_date'],
             'zone'                  => $data['zone'],
