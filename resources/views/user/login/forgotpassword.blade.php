@@ -17,14 +17,25 @@
     {{session('success_msg')}}
 </div>
 @endif
-{!! Form::open(array('url' => 'post_forgotpassword','class'=>'modal_form')) !!}                        
-<div class="form-group">
-    <label>Email:</label>
-    <input type="text" class="form-control" name="email" placeholder="user@mail.com" required="">
-</div>  
-<button type="submit" class="btn btn-default btn-login">submit</button>
-{!! Form::close() !!}    
-<p class="register">Please check you mail for further process.</p>
+<section class="login_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="logo_modal form-group">
+                    <h3 class="text-center">Reset Password</h3>
+                </div>
+				{!! Form::open(array('url' => 'post_forgotpassword','class'=>'modal_form')) !!}                        
+				<div class="form-group space30">
+				    <label>Email:</label>
+				    <input type="text" class="form-control" name="email" placeholder="user@mail.com" required="">
+				</div>  
+				<button type="submit" class="btn btn-default btn-login wid100">submit</button>
+				{!! Form::close() !!}    
+				<p class="register space30">Please check your mail for further process.</p>
+			</div>
+		</div>
+	</div>
+</section>
 @endsection
 @section('script')
 <!--page level script-->

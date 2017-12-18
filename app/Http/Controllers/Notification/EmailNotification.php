@@ -16,6 +16,18 @@ use App\AdminModels\State;
 use App\AdminModels\Country;
 class EmailNotification extends Controller {
     /*send mail to user*/
+    public function registration_success_mail($user_id) { 
+        try {             
+            $user_details = Users::where('id', $user_id)->first();                                     
+            $vars = array('user_name' => $user_details['name'],                 
+                'link'=>"testing..." 
+            ); 
+            (new Email)->send_email_template("rupalbapodarak@gmail.com",$user_details['email'], 1,array(),$vars); 
+        } catch (\Exception $ex) { 
+            echo $ex->getMessage(); 
+            \Log::error('From EmailNotification(registration_success_mail):' . $ex->getMessage()); 
+        } 
+    }    
     public function forgot_password_mail($user_id) {
         try {            
             $user_details = Users::where('id', $user_id)->first();                                    

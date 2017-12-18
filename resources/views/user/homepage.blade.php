@@ -24,21 +24,21 @@
                             <div class="col-md-12">
                                 <div class="search_filter">
                                     <h1>Find an exceptional hotel <br> & enjoy great benefits</h1> 
-                                    <form class="custom_form">                                     
+                                    {!! Form::open(array('url' => '/search','class'=>'modal_form')) !!}                                       
                                          <ul class="list-inline home_search_panel"> 
                                             <li> 
                                                 <div class="form-group"> 
-                                                    <input type="search" class="form-control" placeholder="Where do you want to go?" name=""> 
+                                                    <input type="search" class="form-control" name="search_text" placeholder="Where do you want to go?" name=""> 
                                                 </div> 
                                             </li> 
                                             <li> 
                                                 <div class="form-group datepicker_bg"> 
-                                                    <input type="text" class="form-control" id="from" placeholder="Check In" name=""> 
+                                                    <input type="text" class="form-control" id="from_date" name='from_date' placeholder="Check In" name=""> 
                                                 </div> 
                                             </li> 
                                             <li>                                                 
                                                 <div class="form-group datepicker_bg"> 
-                                                    <input type="text" class="form-control" id="to" placeholder="Depart" name=""> 
+                                                    <input type="text" class="form-control" id="to_date" name='to_date' placeholder="Depart" name=""> 
                                                 </div>    
                                             </li> 
                                             <li> 
@@ -48,7 +48,7 @@
                                             </li> 
                                         </ul> 
                                         <p>Want package customized just for you? <a href="#quote_modal"  data-toggle="modal" data-target="#quote_modal">Click here!</a></p> 
-                                    </form>            
+                                    {!! Form::close() !!}               
                                 </div>
                             </div>
                         </div>
@@ -445,7 +445,7 @@
 <script>
 $( function() {
                 var dateFormat = "mm/dd/yy",
-                  from = $( "#from" )
+                  from = $( "#from_date" )
                     .datepicker({
                       defaultDate: "+1w",
                       changeMonth: true,
@@ -454,7 +454,7 @@ $( function() {
                     .on( "change", function() {
                       to.datepicker( "option", "minDate", getDate( this ) );
                     }),
-                  to = $( "#to" ).datepicker({
+                  to = $( "#to_date" ).datepicker({
                     defaultDate: "+1w",
                     changeMonth: true,
                     numberOfMonths: 1

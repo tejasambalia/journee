@@ -63,8 +63,8 @@
 </div>
 
 <!-- Register Modal -->
-<div class="modal fade login_modal medium-modal" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+<div class="modal fade login_modal" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -72,40 +72,44 @@
                     <h3>Inquiry Now!</h3>
                 </div>
                     {!! Form::open(array('url' => 'post_inquiry','class'=>'modal_form','id'=>'frm_inquiry')) !!}         
-                    <div class="form-group">
-                        {{ Form::label('name', 'Enter Name:') }}
-                        {{ Form::input('text', 'name','',['required','class'=>'form-control','placeholder'=>'Enter name']) }}
+                    <div class="row space50">
+                        <div class="form-group col-md-4">
+                            {{ Form::label('name', 'Full Name:') }}
+                            {{ Form::input('text', 'name','',['required','class'=>'form-control','placeholder'=>'Enter name']) }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ Form::label('mobile_number', 'Mobile Number:') }}
+                            {{ Form::input('text', 'mobile_number','',['required','class'=>'form-control','placeholder'=>'Enter mobile number']) }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ Form::label('email', 'Email Address:') }}
+                            {{ Form::input('email', 'email','',['required','class'=>'form-control','placeholder'=>'Enter email']) }}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        {{ Form::label('mobile_number', 'Enter Mobile Number:') }}
-                        {{ Form::input('text', 'mobile_number','',['required','class'=>'form-control','placeholder'=>'Enter mobile number']) }}
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label('email', 'Enter Email:') }}
-                        {{ Form::input('email', 'email','',['required','class'=>'form-control','placeholder'=>'Enter email']) }}
-                    </div>
-                    <div class="form-group">
-                        @php
-                        $countries=DB::table("m_countries")->get()->pluck('name','id')->toArray();                        
-                        @endphp
-                        {{ Form::label('country', 'Select Country:') }}
-                        {{ Form::select('country', ['' => 'Select country']+$countries ,'',array('class'=>'form-control','id'=>'country','required'))}}
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label('state', 'Select State:') }}
-                        {{ Form::select('state', ['' => 'Select state']+$countries ,'',array('class'=>'form-control','id'=>'state'))}}    
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label('city', 'Select City:') }}
-                        {{ Form::select('city', ['' => 'Select state']+$countries ,'',array('class'=>'form-control','id'=>'city','required'))}}    
-                    </div>                    
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            @php
+                            $countries=DB::table("m_countries")->get()->pluck('name','id')->toArray();                        
+                            @endphp
+                            {{ Form::label('country', 'Country:') }}
+                            {{ Form::select('country', ['' => 'Select country']+$countries ,'',array('class'=>'form-control','id'=>'country','required'))}}
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ Form::label('state', 'State:') }}
+                            {{ Form::select('state', ['' => 'Select state']+$countries ,'',array('class'=>'form-control','id'=>'state'))}}    
+                        </div>
+                        <div class="form-group col-md-4">
+                            {{ Form::label('city', 'City:') }}
+                            {{ Form::select('city', ['' => 'Select city']+$countries ,'',array('class'=>'form-control','id'=>'city','required'))}}    
+                        </div>           
+                    </div>         
                     <div class="form-group">
                         {{ Form::label('email', 'Enter Description') }}
                         {{ Form::textarea('description', null, ['size' => '30x5','required','class'=>'form-control','id'=>'description','required','placeholder'=>'Enter your inquery']) }}
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <button type="button" class="btn btn-default btn-login wid100" id='btn_inquiry'>submit</button>
+                        <div class="col-xs-12 form-group text-center">
+                            <button type="button" class="btn btn-default btn-login" id='btn_inquiry'>inquire us</button>
                         </div>
                     </div>                    
                 {!! Form::close() !!}    

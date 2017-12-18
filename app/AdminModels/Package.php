@@ -96,4 +96,20 @@ class Package extends Model
             ->where('id', '=', $id)
             ->delete();
     }
+    public static function getmaxprice()
+    {
+        return Package::max('price');
+    }
+    public static function getmaxdays()
+    {
+        return Package::max('days');
+    }        
+    public static function getminprice()
+    {
+        return Package::min('price');
+    }
+    public static function getmindays()
+    {
+        return Package::min('days');
+    }        
 }

@@ -74,7 +74,7 @@ class LoginController extends Controller
                 $user_id=User::insertGetId(array('name'=>$name,'email'=>$email,'password'=>md5($password)));
                 //registration success
                 (new EmailNotification)->registration_success_mail($user_id);
-                return redirect('/signup')->with("success_msg","Registration successfully.");
+                return redirect('/login')->with("success_msg","Registration successfully.");
             }
             return redirect('/signup')->with("error_msg","Invalid details.");
         } catch (\Exception $ex) {

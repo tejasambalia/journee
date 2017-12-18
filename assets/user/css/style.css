@@ -527,36 +527,56 @@ label {
     border: 0;
     border-bottom: 1px solid #03529d;
     border-radius: 0;
-    background: #03529d;
+    background: #fff;
     margin-bottom: 0;
+    min-height: 145px;
+    padding: 0px 0 20px;
 }
 
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 15px 0px;
-    color: #fff;
+    padding: 10px 20px;
+    color: #03529d;
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1.75px;
-    margin-right: 30px;
+    margin-right: 10px;
     border-bottom: 2px solid transparent;
+}
+
+.nav>li.inquire_btn_top>a {
+    color: #fff;
+    background: #03529d;
+    padding: 10px 20px;
 }
 
 .nav>li>a:focus, .nav>li>a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     text-decoration: none;
     background-color: #03529d;
     color: #ffffff;
-    border-bottom: 2px solid;
 }
 
 .navbar-brand {
     float: none;
     height: auto;
-    padding: 15px 0;
+    padding: 0;
     font-size: 18px;
     line-height: 20px;
+    margin: 0 auto;
+    /* position: absolute; */
+    left: 0;
+    right: 0;
+}
+
+.navbar-nav {
+    margin-top: 50px;
+}
+
+.navbar-brand img {
+    margin: 0 auto;
+    height: 125px;
 }
 
 .search_form {
@@ -578,27 +598,31 @@ label {
 }
 
 .topbar_menu {
-    margin-top: 37px;
+    margin-top: 0;
 }
 
-.topbar_menu li {
+.topbar {background: #03529d;}
+
+.topbar_menu>li {
     vertical-align: middle;
+    padding: 9px 5px;
 }
 
 .topbar_menu>li>a {
     font-size: 15px;
-    color: #002d40;
-    font-weight: 600;
+    color: #fff;
     display: block;
     margin-left: 20px;
     font-weight: 300;
+    padding-top: 0px;
+    padding-bottom: 0;
 }
 
 .topbar_menu>li.dropdown>a{
-    color: #03529d;
-    border-left: 2px solid #00d9db;
+    color: #fff;
+    border-left: 2px solid rgba(0, 217, 219, 0.32);
     padding-left: 35px;
-    line-height: 10px;
+    line-height: 1px;
 }
 
 .topbar_menu>li>a>i {
@@ -606,6 +630,7 @@ label {
     margin-right: 10px;
     vertical-align: middle;
     font-size: 22px;
+    line-height: 10px;
 }
 
 .topbar_menu .dropdown-menu {
@@ -795,6 +820,15 @@ label {
     min-height: 45px;
     padding: 10px 15px;
 }
+
+select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    background: url(ionicons-2.0.1/png/512/arrow-down-b.png);
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: 96% 17px;
+}	
 
 /*===================== Common Components ends here  ======================*/
 
@@ -1968,4 +2002,8 @@ span.detail_price {
     border: 0;
     border-bottom: 1px solid #eee;
     margin: 0;
+}
+
+.login_sec {
+    padding: 50px 0;
 }
