@@ -2,6 +2,39 @@
 @section('title','Packages | Travel')
 @section('style')
 <!--page level style-->
+<script>
+function package_filter(){
+               /* $.ajax({
+                    url: "package_filter",
+                    success: function(result){
+                        $("#div1").html(result);
+                    }});
+                }*/
+        var zones = new Array();
+        $.each($("input[name='zone[]']:checked"), function() {
+          zones.push("'"+$(this).val()+"'");
+        });
+        //amount
+        var min_amount=$('#min_amount').val();
+        var max_amount=$('#max_amount').val();
+        //duration
+        var min_days=$('#min_days').val();
+        var max_days=$('#max_days').val();
+        $.ajax({
+                type: "POST",
+                url: "package_filter", // 
+                data: {"_token": $('#token').val(),zones:zones.join(','),min_amount:min_amount,max_amount:max_amount,min_days:min_days,max_days:max_days},
+                success: function(msg){
+                    //alert(msg)
+                    $('#filter_package_details').html(msg);
+                },
+                error: function(){
+                    alert("failure");
+                }
+        });
+        
+    }
+</script>
 @endsection
 <!--page content-->
 @php
@@ -11,6 +44,7 @@ use App\AdminModels\Room;
 use App\AdminModels\PackageHotel;
 use App\AdminModels\PackageRoom;
 use App\AdminModels\RoomType;
+use App\AdminModels\Package;
 @endphp
 @section('content')
 @if(session('error_msg'))      
@@ -28,8 +62,8 @@ use App\AdminModels\RoomType;
             <div class="container">
                 <div class="row">
                     
-                    @include ('user.package.filter');
-                    
+                    @include ('user.package.filter')
+                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                     <div class="col-md-8">
                         <div class="topbar_filter">
                         <div class="row">
@@ -38,8 +72,7 @@ use App\AdminModels\RoomType;
                             </div>
                             <div class="col-md-4">
                                 <form class="">
-                                    <div class="text-right">
-                                        <p class="packages_found">{{count($package_details)}} Results Found</p>
+                                    <div class="text-right">                                        
                                         <select class="form-control">
                                             <option>Relavant</option>
                                             <option>Popular</option>
@@ -51,8 +84,11 @@ use App\AdminModels\RoomType;
                             </div>
                         </div>
                         </div>
-                        <div class="package_wrapper">
-                            <div class="row">
+                        
+                        <div class="package_wrapper">                            
+                            <div id="filter_package_details">
+                                <p class="packages_found" div="result_found">{{count($package_details)}} Results Found</p>
+                            <div class="row">                                
                                 @php
                                     if(count($package_details)>0){
                                     foreach($package_details as $row){
@@ -96,6 +132,7 @@ use App\AdminModels\RoomType;
                                     }
                                 @endphp
                             </div>
+                            </div>    
                         </div>
                     </div>
                 </div>
@@ -108,14 +145,44 @@ use App\AdminModels\RoomType;
             $(function(){
                 $( "#slider-range" ).slider({
                     range: true,
-                    min: 0,
-                    max: 100000,
-                    values: [ 20000, 50000 ],
+                    min: <?= Package::getminprice()?>,
+                    max: <?= Package::getmaxprice()?>,
+                    values: [ 1000, 80000 ],
                     slide: function( event, ui ) {
+                        $( "#min_amount" ).val(ui.values[ 0 ]);
+                        $( "#max_amount" ).val(ui.values[ 1 ]);                        
+                        package_filter();
                         $( "#amount" ).val( "Rs. " + ui.values[ 0 ] + " - Rs. " + ui.values[ 1 ] );
                     }
                 });
                 $("#amount").val( "Rs. " + $( "#slider-range" ).slider( "values", 0 ) + "  -  Rs. " + $( "#slider-range" ).slider( "values", 1 ) );
+                $( "#min_amount" ).val($( "#slider-range" ).slider( "values", 0 ));
+                $( "#max_amount" ).val($( "#slider-range" ).slider( "values", 1 ) );                        
             });
         </script>
+        <script>
+            $(function(){
+                $( "#slider-duration" ).slider({
+                    range: true,
+                    min: <?= Package::getmindays()?>,
+                    max: <?= Package::getmaxdays()?>,
+                    values: [ 1, 30 ],
+                    slide: function( event, ui ) {
+                        $( "#min_days" ).val(ui.values[ 0 ]);
+                        $( "#max_days" ).val(ui.values[ 1 ]);                        
+                        package_filter();
+                        
+                        $( "#duration" ).val(ui.values[ 0 ] + " days - " + ui.values[ 1 ] + " days" );
+                    }
+                });
+                $("#duration").val($( "#slider-duration" ).slider( "values", 0 ) + " days - " + $( "#slider-duration" ).slider( "values", 1 ) + " days");
+                $( "#min_days" ).val($( "#slider-duration" ).slider( "values", 0 ));
+                $( "#max_days" ).val($( "#slider-duration" ).slider( "values", 1 ) );                        
+            });
+        </script>        
+        <script>
+            $('#filter_reset').click(function() {
+                     location.reload();
+            });
+        </script>    
 @endsection

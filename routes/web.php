@@ -93,12 +93,14 @@ Route::post('/post_passwordreset/{id}', 'User\LoginController@post_passwordreset
 Route::get('/logout', 'User\LogoutController@index');
 //about us
 Route::get('/aboutus', 'User\AboutusController@index');
-Route::get('/package', 'User\PackageController@index');
+Route::any('/package', 'User\PackageController@index');
 Route::get('/packagedetails/{id}', 'User\PackageController@packagedetails');
+Route::any('/package_filter','User\PackageController@package_filter');
 //inquiry 
 Route::post('/post_inquiry', 'User\InquiryController@post_inquiry'); 
 Route::get('/dynamic_country_state', 'GeneralController@dynamic_country_state'); 
-
+//search
+Route::post('/search', 'User\SearchController@index'); 
 Route::group(['middleware' => 'User'], function () {        
     
 });
