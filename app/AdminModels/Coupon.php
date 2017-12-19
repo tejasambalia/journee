@@ -28,7 +28,7 @@ class Coupon extends Model
 
     public static function get(){
         $data = DB::table('m_coupon')
-            ->select('id', 'name')
+            ->select('id', 'name', 'code', 'discount_type', 'duscount_amount', 'active')
             ->get();
 
         return $data;
@@ -45,7 +45,7 @@ class Coupon extends Model
 
     public static function getById($id){
         $data = DB::table('m_coupon')
-            ->select('id', 'name')
+            ->select('id', 'name', 'code', 'discount_type', 'duscount_amount', 'active')
             ->where('id', '=', $id)
             ->get();
 
@@ -55,6 +55,10 @@ class Coupon extends Model
     public static function add($data){
     	$id = DB::table('m_coupon')->insertGetId([
             'name'                  => $data['name'],
+            'code'                  => $data['code'],
+            'discount_type'         => $data['discount_type'],
+            'duscount_amount'       => $data['duscount_amount'],
+            'active'                => '1',
             'audit_created_date'    => date('Y-m-d H:i:s'),
             'audit_created_by'      => '1',
             'audit_ip'              => Request::ip()
@@ -68,6 +72,9 @@ class Coupon extends Model
             ->where('id', $data['id'])
             ->update([
                 'name'                  => $data['name'],
+                'code'                  => $data['code'],
+                'discount_type'         => $data['discount_type'],
+                'duscount_amount'       => $data['duscount_amount'],
                 'audit_updated_date'    => date('Y-m-d H:i:s'),
                 'audit_updated_by'      => '1',
                 'audit_ip'              => Request::ip()
@@ -78,5 +85,16 @@ class Coupon extends Model
         DB::table('m_coupon')
             ->where('id', '=', $id)
             ->delete();
+    }
+
+    public static function changeStatus($id, $status){
+        DB::table('m_coupon')
+            ->where('id', $id)
+            ->update([
+                'active'                => $status,
+                'audit_updated_date'    => date('Y-m-d H:i:s'),
+                'audit_updated_by'      => '1',
+                'audit_ip'              => Request::ip()
+            ]);
     }
 }

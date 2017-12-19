@@ -66,7 +66,14 @@ Route::get('/admin/closeInquiry/{id}', 'Admin\InquiryController@close');
 Route::get('/admin/order', 'Admin\OrderController@order');
 //Report
 Route::get('/admin/report', 'Admin\ReportController@report');
-
+//coupon
+Route::get('/admin/coupon', 'Admin\CouponController@coupon');
+Route::get('/admin/addCoupon', 'Admin\CouponController@addCoupon');
+Route::post('/admin/handleAddCoupon', 'Admin\CouponController@handleAddCoupon');
+Route::get('/admin/editCoupon/{id}', 'Admin\CouponController@editCoupon');
+Route::post('/admin/handleEditCoupon', 'Admin\CouponController@handleEditCoupon');
+Route::get('/admin/deactivateCoupon/{id}', 'Admin\CouponController@deactivateCoupon');
+Route::get('/admin/activateCoupon/{id}', 'Admin\CouponController@activateCoupon');
 //fetch hotelwise room dropdown
 Route::get('/admin/fetchroom', 'Admin\RoomController@fetchroom');
 

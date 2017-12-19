@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="logo_modal form-group">
-                    <h3 class="text-center">Reset Password</h3>
+                    <h3 class="text-center">Forgot Password</h3>
                 </div>
 				{!! Form::open(array('url' => 'post_forgotpassword','class'=>'modal_form')) !!}                        
 				<div class="form-group space30">

@@ -37,6 +37,7 @@
                                     <li><a href="{{ url('/admin/users') }}">Users</a></li>
                                     <li><a href="{{ url('/admin/packageCategory') }}">Package Category</a></li>
                                     <li><a href="{{ url('/admin/roomType') }}">Room Type</a></li>
+                                    <li><a href="{{ url('/admin/coupon') }}">Coupon</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{ url('/admin/inquiry') }}">Inquiry</a></li>
