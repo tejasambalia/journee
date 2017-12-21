@@ -72,4 +72,25 @@
         
     });
 </script>
+
+<script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>\
+<script type="text/javascript">
+    /* THIRD PARTY ----------------------------------------------------------- */
+
+    /**
+     * Name        : CKEditor
+     * Description : WYSIWYG editor
+     * File Name   : ckeditor.js
+     * Plugin Url  : http://ckeditor.com/
+     * Updated     : --/--/---- 
+     * Dependency  : 
+     * Developer   : Brandon
+    **/ 
+    
+    if($('#editor1').length){
+        CKEDITOR.replace( 'editor1', {
+            uiColor: '#eeeeee'
+        });
+    }
+</script>
 {!! Html::script('/assets/js/custom.js') !!}

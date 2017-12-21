@@ -35,7 +35,8 @@ $room_type = RoomType::getSingleColumnData($room_type_id, 'name');
 
 $obj = new DiscountType;
 @endphp
- <section class="best_offers_sec">
+ <section class="best_offers_sec"  itemscope itemtype="http://schema.org/Product">
+    <span itemprop="brand" itemscope itemtype="http://schema.org/Brand"><span itemprop="logo" content="http://journee.co.in/assets/img/logo.png"></span> <span itemprop="name" content="journee.co.in"></span></span>
             <div class="container">
                 <div class="package_desc_wrapper">
                     <div class="row">
@@ -43,12 +44,12 @@ $obj = new DiscountType;
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="package_img">
-                                        <img src='{{url("$package_details->upload_image")}}' class="img-responsive wid100">
+                                        <img  itemprop="image" src='{{url("$package_details->upload_image")}}' class="img-responsive wid100">
                                     </div>  
                                 </div>
                                 <div class="col-md-6">
                                     <div class="package_details">
-                                        <h3 class="detail_name">{{$package_details->name}} <span>{{$package_details->days}} {{($package_details->days==1)?'Day':'Days'}} and {{$package_details->nights}} {{($package_details->nights==1)?'Night':'Nights'}} | Customizable</span></h3>                                       
+                                        <h3 class="detail_name" itemprop="name">{{$package_details->name}} <span>{{$package_details->days}} {{($package_details->days==1)?'Day':'Days'}} and {{$package_details->nights}} {{($package_details->nights==1)?'Night':'Nights'}} | Customizable</span></h3>                                       
                                         <ul class="list-inline package_hotel_include city_include">
                                             <li><p class="package_hotel">Cities:</p></li>
                                             <li>{{City::getSingleColumnData($package_details->id,'name')}}</li>
@@ -58,7 +59,7 @@ $obj = new DiscountType;
                                             <li>{{$package_details->zone}}</li>
                                         </ul>
                                         <ul class="detail_package_pricing list-unstyled">
-                                            <li><span class="startin_text">Starting From:</span> <span class="detail_price">Rs. {{$package_details->price}}</span> <span class="detail_discount">{{$package_details->discount_amount." ".$obj->name($package_details->discount_type)}} off</span> </li>
+                                            <li><span class="startin_text">Starting From:</span> <span class="detail_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="priceCurrency"> Rs</span>. <span itemprop="price">{{$package_details->price}}</span></span> <span class="detail_discount">{{$package_details->discount_amount." ".$obj->name($package_details->discount_type)}} off</span> </li>
                                             <li class="per_person">Room Type: {{$room_type}}</li>
                                         </ul>
                                         <ul class="list-inline package_hotel_include">
@@ -81,7 +82,7 @@ $obj = new DiscountType;
                     <div class="row">
                         <div class="col-md-12">
                             <h3 class="package_desc_title">Package Description</h3>
-                            <div class="package_content">
+                            <div class="package_content" itemprop="description">
                                 <p>
                                     {{$package_details->description}}
                                 </p>

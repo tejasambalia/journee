@@ -20,6 +20,7 @@ $coupon = Coupon::getActive();
 //get hotels
 $hotels = Hotel::getDropDownData();
 ?>
+
     <section class="package-page">
         <div class="container">
             <div class="row">
@@ -128,7 +129,8 @@ $hotels = Hotel::getDropDownData();
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label>Package Description:</label>
-                                    <textarea class="form-control" rows="5" name="description"></textarea>
+                                    <!-- <textarea class="form-control" rows="5" name="description"></textarea> -->
+                                    <textarea class="ckeditor form-control" id="editor1" name="description"></textarea>
                                 </div>
                             </div>
                         </div>

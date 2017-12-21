@@ -101,7 +101,7 @@ class LoginController extends Controller
     {   
         if(is_numeric($user_id))
         {
-            if(User::where(array('id'=>$user_id))->count()>0)
+            if(Users::where(array('id'=>$user_id))->count()>0)
             {                
                 return view('user.login.passwordreset')->with(['user_id'=>$user_id]);
             }
