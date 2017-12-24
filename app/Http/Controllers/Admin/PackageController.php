@@ -96,6 +96,8 @@ class PackageController extends Controller
         $package_data['available_start_date'] = $data['available_start_date'];
         $package_data['available_end_date'] = $data['available_end_date'];
         $package_data['zone'] = $data['zone'];
+        $package_data['inclusions'] = $data['inclusions'];
+        $package_data['exclusions'] = $data['exclusions'];
         $package_data['upload_image'] = $data['upload_image'];
 
         $package_id = Package::add($package_data);
@@ -134,6 +136,8 @@ class PackageController extends Controller
         $package_data['available_start_date'] = $data['available_start_date'];
         $package_data['available_end_date'] = $data['available_end_date'];
         $package_data['zone'] = $data['zone'];
+        $package_data['inclusions'] = $data['inclusions'];
+        $package_data['exclusions'] = $data['exclusions'];
 
         Package::edit($package_data);
 

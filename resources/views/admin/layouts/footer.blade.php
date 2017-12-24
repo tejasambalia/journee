@@ -73,7 +73,7 @@
     });
 </script>
 
-<script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>\
+<script type="text/javascript" src="/travel/assets/ckeditor/ckeditor.js"></script>\
 <script type="text/javascript">
     /* THIRD PARTY ----------------------------------------------------------- */
 
@@ -89,6 +89,16 @@
     
     if($('#editor1').length){
         CKEDITOR.replace( 'editor1', {
+            uiColor: '#eeeeee'
+        });
+    }
+    if($('#editor_inclusions').length){
+        CKEDITOR.replace( 'editor_inclusions', {
+            uiColor: '#eeeeee'
+        });
+    }
+    if($('#editor_exclusions').length){
+        CKEDITOR.replace( 'editor_exclusions', {
             uiColor: '#eeeeee'
         });
     }

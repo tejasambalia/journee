@@ -141,7 +141,19 @@ $hotels = Hotel::getDropDownData();
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label>Package Description:</label>
-                                <textarea class="form-control" rows="5" name="description">{!! $package_data->description !!}</textarea>
+                                <textarea class="ckeditor form-control" id="editor1" name="description">{!! $package_data->description !!}</textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>Inclusions:</label>
+                                <textarea class="ckeditor form-control" id="editor_inclusions" name="inclusions">{!! $package_data->inclusions !!}</textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>Exclusions:</label>
+                                <textarea class="ckeditor form-control" id="editor_exclusions" name="exclusions">{!! $package_data->exclusions !!}</textarea>
                             </div>
                         </div>
                     </div>
