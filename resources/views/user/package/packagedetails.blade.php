@@ -83,9 +83,26 @@ $obj = new DiscountType;
                         <div class="col-md-12">
                             <h3 class="package_desc_title">Package Description</h3>
                             <div class="package_content" itemprop="description">
-                                <p>
-                                    {{$package_details->description}}
-                                </p>
+                                <div>
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                                        <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">General Information</a></li>
+                                        <li role="presentation"><a href="#inclusions" aria-controls="inclusions" role="tab" data-toggle="tab">Package Inclusions</a></li>
+                                        <li role="presentation"><a href="#exclusions" aria-controls="exclusions" role="tab" data-toggle="tab">Package Exclusions</a></li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="general">
+                                            {!! $package_details->description !!}
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="inclusions">
+                                            {!! $package_details->inclusions !!}
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="exclusions">
+                                            {!! $package_details->exclusions !!}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
