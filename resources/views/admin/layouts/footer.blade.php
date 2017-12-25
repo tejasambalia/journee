@@ -73,7 +73,7 @@
     });
 </script>
 
-<script type="text/javascript" src="/travel/assets/ckeditor/ckeditor.js"></script>\
+<script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>\
 <script type="text/javascript">
     /* THIRD PARTY ----------------------------------------------------------- */
 

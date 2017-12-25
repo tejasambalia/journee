@@ -21,6 +21,7 @@ use App\AdminModels\PackageCategory;
 use App\AdminModels\Coupon;
 use App\Classes\DropDown;
 use App\Classes\Zone;
+use App\AdminModels\PackageSection;
 
 $package_data = Package::findById($id);
 $package_hotel = PackageHotel::getPackageHotel($id);
@@ -133,6 +134,18 @@ $hotels = Hotel::getDropDownData();
                                         $zone_obj = new Zone;
                                         $zone_data = $zone_obj->name();
                                         $DropDown = $obj->DropDown($zone_data, $package_data->zone);
+                                        echo $DropDown;
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 form-group">
+                                <label>Package Section:</label>
+                                <select class="form-control" name="package_section">
+                                    <?php
+                                        $package_section = PackageSection::get();
+                                        $DropDown = $obj->ObjDropDown($package_section, $package_data->package_section);
                                         echo $DropDown;
                                     ?>
                                 </select>

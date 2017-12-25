@@ -138,6 +138,9 @@ class PackageController extends Controller
         $package_data['zone'] = $data['zone'];
         $package_data['inclusions'] = $data['inclusions'];
         $package_data['exclusions'] = $data['exclusions'];
+        if(isset($data['package_section'])){
+            $package_data['package_section'] = $data['package_section'];
+        }
 
         Package::edit($package_data);
 

@@ -69,7 +69,7 @@ $data = Inquiry::getInquiryList();
             </div>
         </div>  
     </section>
-    
+	
 @endsection
 @section('script')
 <!--page level script-->
