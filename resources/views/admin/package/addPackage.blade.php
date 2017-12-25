@@ -128,6 +128,18 @@ $hotels = Hotel::getDropDownData();
                                 </div> 
                             </div>
                             <div class="row">
+                                <div class="col-sm-3 form-group">
+                                    <label>Package Section:</label>
+                                    <select class="form-control" name="package_section">
+                                        <?php
+                                            $package_section = PackageSection::get();
+                                            $DropDown = $obj->ObjDropDown($package_section);
+                                            echo $DropDown;
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label>Package Description:</label>
                                     <textarea class="ckeditor form-control" id="editor1" name="description"></textarea>
@@ -144,18 +156,6 @@ $hotels = Hotel::getDropDownData();
                                     <label>Exclusions:</label>
                                     <textarea class="ckeditor form-control" id="editor_exclusions" name="exclusions"></textarea>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3 form-group">
-                                <label>Package Section:</label>
-                                <select class="form-control" name="package_section">
-                                    <?php
-                                        $package_section = PackageSection::get();
-                                        $DropDown = $obj->ObjDropDown($package_section, $package_data->package_section);
-                                        echo $DropDown;
-                                    ?>
-                                </select>
                             </div>
                         </div>
                         <div class="row">
