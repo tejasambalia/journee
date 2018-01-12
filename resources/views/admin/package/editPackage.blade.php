@@ -49,15 +49,15 @@ $hotels = Hotel::getDropDownData();
                             <input type="hidden" name="id" value="{!! $package_data->id !!}">
                             <div class="col-sm-3 form-group">
                                 <label>Name:</label>
-                                <input type="text" class="form-control" placeholder="" name="name" value="{!! $package_data->name !!}">
+                                <input type="text" class="form-control" placeholder="" name="name" value="{!! $package_data->name !!}" required="required">
                             </div>
                             <div class="col-sm-3 form-group">
                                 <label>Price:</label>
-                                <input type="number" min="0" class="form-control" placeholder="" name="price" value="{!! $package_data->price !!}">
+                                <input type="number" min="0" class="form-control" placeholder="" name="price" value="{!! $package_data->price !!}" required="required">
                             </div>
                             <div class="col-sm-3 form-group">
                                 <label>Category:</label>
-                                <select class="form-control" name='category'>
+                                <select class="form-control" name='category' required="required">
                                     <?php
                                     $obj = new DropDown;
                                     $DropDown = $obj->ObjDropDown($packageCategory, $package_data->category);
@@ -69,11 +69,11 @@ $hotels = Hotel::getDropDownData();
                                 <div class="row">
                                     <div class="col-xs-6 form-group">
                                         <label>Days:</label>
-                                        <input type="number" min="0" class="form-control" name="days" value="{!! $package_data->days !!}">
+                                        <input type="number" min="0" class="form-control" name="days" value="{!! $package_data->days !!}" required="required">
                                     </div>
                                     <div class="col-xs-6 form-group">
                                         <label>Nights:</label>
-                                        <input type="number" min="0" class="form-control" name="nights" value="{!! $package_data->nights !!}">
+                                        <input type="number" min="0" class="form-control" name="nights" value="{!! $package_data->nights !!}" required="required">
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@ $hotels = Hotel::getDropDownData();
                         <div class="row">
                             <div class="col-sm-4 form-group">
                                 <label>City:</label>
-                                <select class="form-control" name="city">
+                                <select class="form-control" name="city" required="required">
                                     <?php
                                     $obj = new DropDown;
                                     $DropDown = $obj->ObjDropDown($city, $package_data->city);
@@ -94,8 +94,8 @@ $hotels = Hotel::getDropDownData();
                                 <div id="availability" class="date_range_picker" class="pull-right">
                                     <i class="ion-calendar"></i> <span></span> <i class="ion-arrow-down-b pull-right" aria-hidden="true"></i>
                                 </div>
-                                <input type="hidden" id="available_start_date" name="available_start_date">
-                                <input type="hidden" id="available_end_date" name="available_end_date">
+                                <input type="hidden" id="available_start_date" name="available_start_date" required="required">
+                                <input type="hidden" id="available_end_date" name="available_end_date" required="required">
                             </div>
                             <div class="col-sm-4">
                                 <label>Upload Image:</label>
@@ -129,7 +129,7 @@ $hotels = Hotel::getDropDownData();
                             </div>
                             <div class="col-sm-3 form-group">
                                 <label>Zone:</label>
-                                <select class="form-control" name="zone">
+                                <select class="form-control" name="zone" required="required">
                                     <?php
                                         $zone_obj = new Zone;
                                         $zone_data = $zone_obj->name();
@@ -142,7 +142,7 @@ $hotels = Hotel::getDropDownData();
                         <div class="row">
                             <div class="col-sm-3 form-group">
                                 <label>Package Section:</label>
-                                <select class="form-control" name="package_section">
+                                <select class="form-control" name="package_section" required="required">
                                     <?php
                                         $package_section = PackageSection::get();
                                         $DropDown = $obj->ObjDropDown($package_section, $package_data->package_section);
@@ -154,19 +154,19 @@ $hotels = Hotel::getDropDownData();
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label>Package Description:</label>
-                                <textarea class="ckeditor form-control" id="editor1" name="description">{!! $package_data->description !!}</textarea>
+                                <textarea class="ckeditor form-control" id="editor1" name="description" required="required">{!! $package_data->description !!}</textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label>Inclusions:</label>
-                                <textarea class="ckeditor form-control" id="editor_inclusions" name="inclusions">{!! $package_data->inclusions !!}</textarea>
+                                <textarea class="ckeditor form-control" id="editor_inclusions" name="inclusions" required="required">{!! $package_data->inclusions !!}</textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label>Exclusions:</label>
-                                <textarea class="ckeditor form-control" id="editor_exclusions" name="exclusions">{!! $package_data->exclusions !!}</textarea>
+                                <textarea class="ckeditor form-control" id="editor_exclusions" name="exclusions" required="required">{!! $package_data->exclusions !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@ $hotels = Hotel::getDropDownData();
                                 <label>Select Hotel:</label>
                                 @if(count($package_hotel)>0)
                                 <input type="hidden" name="hotel_id" value="{!! $package_hotel[0]->id !!}">
-                                <select class="form-control" name="package_hotel" id="hotel_id" onchange="get_hotel_rooms()">
+                                <select class="form-control" name="package_hotel" id="hotel_id" onchange="get_hotel_rooms()" required="required">
                                     @foreach($package_hotel as $p_hotel)
                                     <?php
                                         $DropDown = $obj->ObjDropDown($hotels, $p_hotel->hotel_id);
@@ -199,7 +199,7 @@ $hotels = Hotel::getDropDownData();
                                 @else
                                 <input type="hidden" name="hotel_id" value="">
                                 <select class="form-control" name="package_hotel" id="hotel_id" onchange="
-                                    get_hotel_rooms()">
+                                    get_hotel_rooms()" required="required">
                                     <?php
                                         $DropDown = $obj->ObjDropDown($hotels);
                                         echo $DropDown;
@@ -209,7 +209,7 @@ $hotels = Hotel::getDropDownData();
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Select Room:</label>
-                                <select class="form-control" id="display_room" name="package_room">
+                                <select class="form-control" id="display_room" name="package_room" required="required">
                                     @foreach($package_hotel as $p_hotel)
                                         <?php
                                             $rooms = Room::getDropDownData($p_hotel->hotel_id);
