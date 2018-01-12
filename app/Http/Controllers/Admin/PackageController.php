@@ -99,6 +99,9 @@ class PackageController extends Controller
         $package_data['inclusions'] = $data['inclusions'];
         $package_data['exclusions'] = $data['exclusions'];
         $package_data['upload_image'] = $data['upload_image'];
+        if(isset($data['package_section'])){
+            $package_data['package_section'] = $data['package_section'];
+        }
 
         $package_id = Package::add($package_data);
 
