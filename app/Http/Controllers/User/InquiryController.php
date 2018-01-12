@@ -29,11 +29,12 @@ class InquiryController extends Controller {
                     'email'=>$email,
                     'state'=>$state,
                     'city'=>$city,
+                    'country'=>$country,
                     'description'=>$description,
                     'status'=>'0'
                 );
                 DB::table('inquiry')->insert($data);
-                // (new EmailNotification)->inquiry_mail(1,$data);
+                 (new EmailNotification)->inquiry_mail(1,$data);
                 return redirect('/')->with("success_msg","Your inquiry details submited successfully.");
             }
             return redirect('/')->with("error_msg","Please fill require filed");

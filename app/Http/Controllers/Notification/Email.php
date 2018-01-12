@@ -83,7 +83,7 @@ class Email extends Controller {
             foreach ($email_details as $email_detail)
             {                
                 DB::table('email_queue')->where('id',$email_detail->id)->update(array('sent'=>2));
-                $result=Mail::send('EmailTemplate.user_mail_template', ['body'=>$email_detail->body], function ($m) use ($email_detail) 
+                $result=Mail::send('emailtemplate.user_mail_template', ['body'=>$email_detail->body], function ($m) use ($email_detail) 
                        {
                         $m->from($email_detail->email_from, $email_detail->email_from);
                         $m->to($email_detail->email_to,$email_detail->email_to)->subject($email_detail->subject);

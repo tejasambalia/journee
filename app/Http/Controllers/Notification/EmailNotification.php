@@ -62,12 +62,12 @@ class EmailNotification extends Controller {
                 'name'=>$data['name'],
                 'email'=>$data['email'],
                 'mobile_number'=>$data['contact'],
-                'country'=> Country::getSingleColumnData($data['m_country_id'],'name'),
-                'state'=>State::getSingleColumnData($data['m_state_id'],'name'),
-                'city'=>City::getSingleColumnData($data['m_city_id'],'name'),
+                'country'=> Country::getSingleColumnData($data['country'],'name'),
+                'state'=>State::getSingleColumnData($data['state'],'name'),
+                'city'=>City::getSingleColumnData($data['city'],'name'),
                 'description'=>$data['description'],
             );            
-            (new Email)->send_email_template("rupalbapodarak@gmail.com",$admin_details['email'], 4,array(),$vars);
+            (new Email)->send_email_template("rupalbapodarak@gmail.com",$data['email'], 4,array(),$vars);
         } catch (\Exception $ex) {
             echo $ex->getMessage();
             \Log::error('From EmailNotification(inquiry_mail):' . $ex->getMessage());
