@@ -18,7 +18,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <ul class="list-inline topbar_menu text-right">
-                                <li><a href="#"><i class="ion-android-call"></i>+91 1234567890 </a></li>
+                                <li><a href="#"><i class="ion-android-call"></i>+91 9081117017 </a></li>
+                                <li><a href="#"><i class="ion-android-mail"></i>salesjournee@gmail.com </a></li>
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown"><i class="ion-android-person"></i></a>
                                     <div class="dropdown-menu">
