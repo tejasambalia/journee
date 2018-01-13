@@ -17,10 +17,21 @@
 @endif
 
 <?
+//best offers
 $best_offer_data = DB::table('package')
     ->select('id', 'name', 'discount_type', 'discount_amount', 'upload_image')
     ->where([
         ['package_section', '=', '2'],
+        ['active', '=', '1']
+    ])
+    ->orderBy('id', 'desc')
+    ->limit(3)
+    ->get();
+//new added packages
+$new_data = DB::table('package')
+    ->select('id', 'name', 'discount_type', 'discount_amount', 'upload_image')
+    ->where([
+        ['package_section', '<>', '2'],
         ['active', '=', '1']
     ])
     ->orderBy('id', 'desc')
@@ -130,7 +141,7 @@ $best_offer_data = DB::table('package')
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <a href="#" class="btn btn-default space30">find all offers</a>
+                        <a href="{{ url('/package') }}" class="btn btn-default space30">find all offers</a>
                     </div>
                 </div>
             </div>
@@ -271,48 +282,18 @@ $best_offer_data = DB::table('package')
                     </div>
                 </div>
                 <div class="row">
+                    @foreach($new_data as $data)
                     <div class="col-sm-4">
                         <div class="discover_box">
-                            <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
-                            <h3>LoremIpsu</h3>
+                            <img src="{{ url($data->upload_image) }}" class="img-responsive wid100">
+                            <h3>{{ $data->name }}</h3>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="discover_box">
-                            <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
-                            <h3>LoremIpsu</h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="discover_box">
-                            <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
-                            <h3>LoremIpsu</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="discover_box">
-                            <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
-                            <h3>LoremIpsu</h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="discover_box">
-                            <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
-                            <h3>LoremIpsu</h3>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="discover_box">
-                            <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
-                            <h3>LoremIpsu</h3>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <a href="#" class="btn btn-default space30">discover all</a>
+                        <a href="{{ url('/package') }}" class="btn btn-default space30">discover all</a>
                     </div>
                 </div>
             </div>
