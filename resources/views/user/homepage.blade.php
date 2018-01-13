@@ -15,6 +15,18 @@
   {{session('success_msg')}}
 </div>
 @endif
+
+<?
+$best_offer_data = DB::table('package')
+    ->select('id', 'name', 'discount_type', 'discount_amount', 'upload_image')
+    ->where([
+        ['package_section', '=', '2'],
+        ['active', '=', '1']
+    ])
+    ->orderBy('id', 'desc')
+    ->limit(3)
+    ->get();
+?>
 <!--page content-->
  <section class="home-banner">
             <div class="view_table">
@@ -57,7 +69,7 @@
             </div>
         </section>
 
-        <section class="features_sec">
+        <!-- <section class="features_sec">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -89,7 +101,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section class="best_offers_sec">
             <div class="container">
@@ -99,60 +111,22 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach($best_offer_data as $data)
                     <div class="col-sm-4">
                         <div class="offer_box">
                             <div class="offer_img">
-                                <img src="https://placeimg.com/360/200/nature" class="img-responsive wid100">
+                                <img src="{{ url($data->upload_image) }}" class="img-responsive wid100">
                                 <div class="offer_discount">
-                                    <span>-50%</span>
-                                    <a href="#" class="btn btn-default">book</a>
+                                    <span>-{{ $data->discount_amount }}{{ ($data->discount_type==1)?"Rs":"%" }}</span>
+                                    <a href="/packagedetails/{{ $data->id }}" class="btn btn-default">book</a>
                                 </div>
                             </div>
                             <div class="offer_details">
-                                <h3>Lorem Ipsum Conor</h3>
-                                <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim...
-                                </p>
+                                <h3>{{$data->name}}</h3>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="offer_box">
-                            <div class="offer_img">
-                                <img src="https://placeimg.com/360/200/arch" class="img-responsive wid100">
-                                <div class="offer_discount">
-                                    <span>-50%</span>
-                                    <a href="#" class="btn btn-default">book</a>
-                                </div>
-                            </div>
-                            <div class="offer_details">
-                                <h3>Lorem Ipsum Conor</h3>
-                                <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="offer_box">
-                            <div class="offer_img">
-                                <img src="https://placeimg.com/360/200/people" class="img-responsive wid100">
-                                <div class="offer_discount">
-                                    <span>-50%</span>
-                                    <a href="#" class="btn btn-default">book</a>
-                                </div>
-                            </div>
-                            <div class="offer_details">
-                                <h3>Lorem Ipsum Conor</h3>
-                                <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -162,7 +136,7 @@
             </div>
         </section>
 
-        <section class="top_destinations_sec">
+        <!-- <section class="top_destinations_sec">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
@@ -287,7 +261,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section class="discover_esc_sec">
             <div class="container">
