@@ -46,7 +46,6 @@ class Hotel extends Model
     public static function add($data){
     	$id = DB::table('hotel')->insertGetId([
             'name'                  => $data['name'],
-            'type' 	                => $data['type'],
             'state_id'              => $data['state_id'],
             'city_id'               => $data['city_id'],
             'hotel_image_path'      => $data['hotel_image_path'],
@@ -66,7 +65,6 @@ class Hotel extends Model
             ->where('id', $data['id'])
             ->update([
                 'name'                  => $data['name'],
-                'type'                  => $data['type'],
                 'state_id'              => $data['state_id'],
                 'city_id'               => $data['city_id'],
                 'hotel_image_path'      => $data['hotel_image_path'],

@@ -29,22 +29,6 @@ use App\AdminModels\City;
                                     <label>Name:</label>
                                     {!! Form::text('name', null, array('class' => 'form-control',  'placeholder' => 'Hotel Name', 'required' => 'required')) !!}
                                 </div>
-                                <div class="col-sm-6 form-group">
-                                    <label>Type:</label>
-                                    <?php
-                                        $data = array(
-                                            '5 Star' => '5 Star',
-                                            '3 Star' => '3 Star'
-                                            );
-                                    ?>
-                                    <select class="form-control" name="type">
-                                    <?php
-                                    $obj = new DropDown;
-                                    $DropDown = $obj->DropDown($data);
-                                    echo $DropDown;
-                                    ?>
-                                    </select>
-                                </div>
                             </div>            
                             <div class="row">
                                 <div class="col-sm-4 form-group">

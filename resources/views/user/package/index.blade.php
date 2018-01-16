@@ -117,10 +117,6 @@ use App\AdminModels\Package;
                                                     @endphp
                                                     <li><p class="package_discount">{{$row->discount_amount." ".$obj->name($row->discount_type)}} off</p></li>
                                                 </ul>
-                                                <ul class="list-inline package_hotel_include">
-                                                    <li><p class="package_hotel">Hotel Included:</p></li>
-                                                    <li><i class="ion-checkmark-circled active"></i> {{$hotel_type}}</li>
-                                                </ul>
                                                 <div class="package_btn text-center">
                                                     <a href='{{url("/packagedetails/$row->id")}}' class="btn btn-default">View Details</a>
                                                 </div>

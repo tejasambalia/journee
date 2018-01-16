@@ -107,7 +107,6 @@ class HotelController extends Controller
 
         $hotel_data['id'] = $data['hotel_id'];
         $hotel_data['name'] = $data['name'];
-        $hotel_data['type'] = $data['type'];
         $hotel_data['hotel_image_path'] = $data['hotel_image_path'];
         $hotel_data['state_id'] = $data['state_id'];
         $hotel_data['city_id'] = $data['city_id'];
