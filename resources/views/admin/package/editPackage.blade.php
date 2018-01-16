@@ -169,6 +169,12 @@ $hotels = Hotel::getDropDownData();
                                 <textarea class="ckeditor form-control" id="editor_exclusions" name="exclusions" required="required">{!! $package_data->exclusions !!}</textarea>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>Hotel Details:</label>
+                                <textarea class="ckeditor form-control" id="hotel_details" name="hotel_details">{!! $package_data->hotel_details !!}</textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">

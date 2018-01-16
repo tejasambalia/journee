@@ -102,5 +102,10 @@
             uiColor: '#eeeeee'
         });
     }
+    if($('#hotel_details').length){
+        CKEDITOR.replace( 'hotel_details', {
+            uiColor: '#eeeeee'
+        });
+    }
 </script>
 {!! Html::script('/assets/js/custom.js') !!}

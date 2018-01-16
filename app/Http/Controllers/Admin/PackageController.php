@@ -99,6 +99,7 @@ class PackageController extends Controller
         $package_data['inclusions'] = $data['inclusions'];
         $package_data['exclusions'] = $data['exclusions'];
         $package_data['upload_image'] = $data['upload_image'];
+        $package_data['hotel_details'] = $data['hotel_details'];
         if(isset($data['package_section'])){
             $package_data['package_section'] = $data['package_section'];
         }
@@ -152,6 +153,7 @@ class PackageController extends Controller
         $package_data['zone'] = $data['zone'];
         $package_data['inclusions'] = $data['inclusions'];
         $package_data['exclusions'] = $data['exclusions'];
+        $package_data['hotel_details'] = $data['hotel_details'];
         if($image_uploaded){
             $package_data['upload_image'] = $data['upload_image'];
         }
