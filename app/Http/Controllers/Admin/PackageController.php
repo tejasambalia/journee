@@ -123,6 +123,17 @@ class PackageController extends Controller
     public function handleEditPackage(Request $request){
         $data = $request->all();
 
+        //upload package image
+        $package_image = $request->file('upload_image');
+        $image_uploaded = false;
+        if(count($package_image)>0){
+            $imagename = time().'_package.'.$package_image->getClientOriginalExtension();
+            $request->upload_image->move(public_path('img'), $imagename);
+            $obj = new General;
+            $data['upload_image'] = $obj->getUserImagePath($imagename);
+            $image_uploaded = true;
+        }
+
         //edit package details
         $package_data = array();
         $package_data['id'] = $data['id'];
@@ -141,6 +152,9 @@ class PackageController extends Controller
         $package_data['zone'] = $data['zone'];
         $package_data['inclusions'] = $data['inclusions'];
         $package_data['exclusions'] = $data['exclusions'];
+        if($image_uploaded){
+            $package_data['upload_image'] = $data['upload_image'];
+        }
         if(isset($data['package_section'])){
             $package_data['package_section'] = $data['package_section'];
         }

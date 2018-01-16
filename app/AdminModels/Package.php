@@ -61,6 +61,7 @@ class Package extends Model
         $add_data['zone'] = $data['zone'];
         $add_data['inclusions'] = $data['inclusions'];
         $add_data['exclusions'] = $data['exclusions'];
+        $add_data['upload_image'] = $data['upload_image'];
         $add_data['audit_created_date'] = date('Y-m-d H:i:s');
         $add_data['audit_created_by'] = '1';
         $add_data['audit_ip'] = Request::ip();
@@ -89,6 +90,9 @@ class Package extends Model
         $edit_data['zone'] = $data['zone'];
         $edit_data['inclusions'] = $data['inclusions'];
         $edit_data['exclusions'] = $data['exclusions'];
+        if(isset($data['upload_image'])){
+            $edit_data['upload_image'] = $data['upload_image'];
+        }
         $edit_data['audit_updated_date'] = date('Y-m-d H:i:s');
         $edit_data['audit_updated_by'] = '1';
         $edit_data['audit_ip'] = Request::ip();

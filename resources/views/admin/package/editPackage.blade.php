@@ -43,7 +43,7 @@ $hotels = Hotel::getDropDownData();
         <hr>
         <div class="row">
             <div class="col-md-12">
-                {!! Form::open(array('url' => '/admin/handleEditPackage', 'class' => 'basic-form', 'method' => 'post')) !!}
+                {!! Form::open(array('url' => '/admin/handleEditPackage', 'class' => 'basic-form', 'method' => 'post', 'enctype' => "multipart/form-data")) !!}
                     <div class="hotel_details">
                         <div class="row">
                             <input type="hidden" name="id" value="{!! $package_data->id !!}">
