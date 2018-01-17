@@ -89,17 +89,20 @@
     
     if($('#editor1').length){
         CKEDITOR.replace( 'editor1', {
-            uiColor: '#eeeeee'
+            uiColor: '#eeeeee',
+            font_defaultLabel : 'Lato'
         });
     }
     if($('#editor_inclusions').length){
         CKEDITOR.replace( 'editor_inclusions', {
-            uiColor: '#eeeeee'
+            uiColor: '#eeeeee',
+            font_defaultLabel : 'Lato'
         });
     }
     if($('#editor_exclusions').length){
         CKEDITOR.replace( 'editor_exclusions', {
-            uiColor: '#eeeeee'
+            uiColor: '#eeeeee',
+            font_defaultLabel : 'Lato'
         });
     }
     if($('#hotel_details').length){

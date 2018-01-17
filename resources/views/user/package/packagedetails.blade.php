@@ -18,7 +18,6 @@
 </div>
 @endif
 @php
-use App\AdminModels\City;
 use App\Classes\DiscountType;
 use App\AdminModels\Hotel;
 use App\AdminModels\Room;
@@ -51,8 +50,12 @@ $obj = new DiscountType;
                                     <div class="package_details">
                                         <h3 class="detail_name" itemprop="name">{{$package_details->name}} <span>{{$package_details->days}} {{($package_details->days==1)?'Day':'Days'}} and {{$package_details->nights}} {{($package_details->nights==1)?'Night':'Nights'}} | Customizable</span></h3>                                       
                                         <ul class="list-inline package_hotel_include city_include">
-                                            <li><p class="package_hotel">Cities:</p></li>
-                                            <li>{{City::getSingleColumnData($package_details->id,'name')}}</li>
+                                            <li><p class="package_hotel">Pickup:</p></li>
+                                            <li>{{$package_details->pickup}}</li>
+                                        </ul>
+                                        <ul class="list-inline package_hotel_include city_include">
+                                            <li><p class="package_hotel">Drop:</p></li>
+                                            <li>{{$package_details->drop}}</li>
                                         </ul>
                                         <ul class="list-inline package_hotel_include">
                                             <li><p class="package_hotel">Zone:</p></li>

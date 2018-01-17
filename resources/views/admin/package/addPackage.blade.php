@@ -8,14 +8,12 @@
 <?php
 use App\Classes\DropDown;
 use App\AdminModels\PackageCategory;
-use App\AdminModels\City;
 use App\AdminModels\Coupon;
 use App\AdminModels\Hotel;
 use App\Classes\Zone;
 use App\AdminModels\PackageSection;
 
 $packageCategory = PackageCategory::get();
-$city = City::get();
 $coupon = Coupon::getActive();
 
 //get hotels
@@ -67,15 +65,13 @@ $hotels = Hotel::getDropDownData();
                                 </div>
                             </div>            
                             <div class="row">
-                                <div class="col-sm-4 form-group">
-                                    <label>City:</label>
-                                    <select class="form-control" name="city" required="required">
-                                        <?php
-                                        $obj = new DropDown;
-                                        $DropDown = $obj->ObjDropDown($city);
-                                        echo $DropDown;
-                                        ?>
-                                    </select>
+                                <div class="col-sm-2 form-group">
+                                    <label>Pickup:</label>
+                                    <input type="text" name="pickup" class="form-control" required="">
+                                </div>
+                                <div class="col-sm-2 form-group">
+                                    <label>Drop:</label>
+                                    <input type="text" name="drop" class="form-control" required="">
                                 </div>
                                 <div class="col-sm-4 form-group">
                                     <label>Availability:</label>

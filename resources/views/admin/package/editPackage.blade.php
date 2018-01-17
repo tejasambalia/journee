@@ -13,7 +13,6 @@ use App\AdminModels\PackageHotel;
 use App\AdminModels\PackageRoom;
 use App\AdminModels\RoomType;
 use App\AdminModels\State;
-use App\AdminModels\City;
 use App\AdminModels\RoomOption;
 use App\Classes\GuestAllowedCondition;
 use App\Classes\DiscountType;
@@ -26,7 +25,6 @@ use App\AdminModels\PackageSection;
 $package_data = Package::findById($id);
 $package_hotel = PackageHotel::getPackageHotel($id);
 $packageCategory = PackageCategory::get();
-$city = City::get();
 $coupon = Coupon::getActive();
 $hotels = Hotel::getDropDownData();
 ?>
@@ -79,15 +77,13 @@ $hotels = Hotel::getDropDownData();
                             </div>
                         </div>            
                         <div class="row">
-                            <div class="col-sm-4 form-group">
-                                <label>City:</label>
-                                <select class="form-control" name="city" required="required">
-                                    <?php
-                                    $obj = new DropDown;
-                                    $DropDown = $obj->ObjDropDown($city, $package_data->city);
-                                    echo $DropDown;
-                                    ?>
-                                </select>
+                            <div class="col-sm-2 form-group">
+                                <label>Pickup:</label>
+                                <input type="text" name="pickup" class="form-control" value="{!! $package_data->pickup !!}">
+                            </div>
+                            <div class="col-sm-2 form-group">
+                                <label>Drop:</label>
+                                <input type="text" name="drop" class="form-control" value="{!! $package_data->drop !!}">
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Availability:</label>

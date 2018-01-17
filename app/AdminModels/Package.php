@@ -10,7 +10,7 @@ class Package extends Model
 {
     //
     protected $fillable = [
-        'id', 'name', 'active', 'description', 'price', 'audit_created_date', 'audit_updated_date', 'audit_created_by', 'audit_updated_by', 'audit_ip', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone', 'inclusions', 'exclusions', 'package_section','hotel_details'
+        'id', 'name', 'active', 'description', 'price', 'audit_created_date', 'audit_updated_date', 'audit_created_by', 'audit_updated_by', 'audit_ip', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone', 'inclusions', 'exclusions', 'package_section','hotel_details','pickup','drop'
     ];
 
     protected $table = 'package';
@@ -27,7 +27,7 @@ class Package extends Model
 
     public static function get(){
         $data = DB::table('package')
-            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone', 'inclusions', 'exclusions', 'package_section','hotel_details')
+            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone', 'inclusions', 'exclusions', 'package_section','hotel_details','pickup','drop')
             ->get();
 
         return $data;
@@ -35,7 +35,7 @@ class Package extends Model
 
     public static function getById($id){
         $data = DB::table('package')
-            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone', 'inclusions', 'exclusions', 'package_section','hotel_details')
+            ->select('id', 'name', 'active', 'description', 'price', 'discount_type', 'discount_amount', 'coupon_id', 'category', 'days', 'nights', 'city', 'upload_image', 'available_start_date', 'available_end_date', 'zone', 'inclusions', 'exclusions', 'package_section','hotel_details','pickup','drop')
             ->where('id', '=', $id)
             ->get();
 
@@ -55,7 +55,6 @@ class Package extends Model
         $add_data['category'] = $data['category'];
         $add_data['days'] = $data['days'];
         $add_data['nights'] = $data['nights'];
-        $add_data['city'] = $data['city'];
         $add_data['available_start_date'] = $data['available_start_date'];
         $add_data['available_end_date'] = $data['available_end_date'];
         $add_data['zone'] = $data['zone'];
@@ -63,6 +62,8 @@ class Package extends Model
         $add_data['exclusions'] = $data['exclusions'];
         $add_data['upload_image'] = $data['upload_image'];
         $add_data['hotel_details'] = $data['hotel_details'];
+        $add_data['pickup'] = $data['pickup'];
+        $add_data['drop'] = $data['drop'];
         $add_data['audit_created_date'] = date('Y-m-d H:i:s');
         $add_data['audit_created_by'] = '1';
         $add_data['audit_ip'] = Request::ip();
@@ -85,12 +86,13 @@ class Package extends Model
         $edit_data['category'] = $data['category'];
         $edit_data['days'] = $data['days'];
         $edit_data['nights'] = $data['nights'];
-        $edit_data['city'] = $data['city'];
         $edit_data['available_start_date'] = $data['available_start_date'];
         $edit_data['available_end_date'] = $data['available_end_date'];
         $edit_data['zone'] = $data['zone'];
         $edit_data['inclusions'] = $data['inclusions'];
         $edit_data['exclusions'] = $data['exclusions'];
+        $edit_data['pickup'] = $data['pickup'];
+        $edit_data['drop'] = $data['drop'];
         if(isset($data['upload_image'])){
             $edit_data['upload_image'] = $data['upload_image'];
         }

@@ -88,7 +88,6 @@ class PackageController extends Controller
         $package_data['category'] = $data['category'];
         $package_data['days'] = $data['days'];
         $package_data['nights'] = $data['nights'];
-        $package_data['city'] = $data['city'];
         $package_data['coupon_id'] = $data['coupon_id'];
         $package_data['discount_type'] = $data['discount_type'];
         $package_data['discount_amount'] = $data['discount_amount'];
@@ -100,6 +99,8 @@ class PackageController extends Controller
         $package_data['exclusions'] = $data['exclusions'];
         $package_data['upload_image'] = $data['upload_image'];
         $package_data['hotel_details'] = $data['hotel_details'];
+        $package_data['pickup'] = $data['pickup'];
+        $package_data['drop'] = $data['drop'];
         if(isset($data['package_section'])){
             $package_data['package_section'] = $data['package_section'];
         }
@@ -143,7 +144,6 @@ class PackageController extends Controller
         $package_data['category'] = $data['category'];
         $package_data['days'] = $data['days'];
         $package_data['nights'] = $data['nights'];
-        $package_data['city'] = $data['city'];
         $package_data['coupon_id'] = $data['coupon_id'];
         $package_data['discount_type'] = $data['discount_type'];
         $package_data['discount_amount'] = $data['discount_amount'];
@@ -154,6 +154,8 @@ class PackageController extends Controller
         $package_data['inclusions'] = $data['inclusions'];
         $package_data['exclusions'] = $data['exclusions'];
         $package_data['hotel_details'] = $data['hotel_details'];
+        $package_data['pickup'] = $data['pickup'];
+        $package_data['drop'] = $data['drop'];
         if($image_uploaded){
             $package_data['upload_image'] = $data['upload_image'];
         }
