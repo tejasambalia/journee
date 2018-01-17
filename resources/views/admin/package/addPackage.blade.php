@@ -109,7 +109,7 @@ $hotels = Hotel::getDropDownData();
                                 </div> 
                                 <div class="col-sm-3 form-group">
                                     <label>Discount Amount:</label>
-                                    <input type="number" class="form-control" min="0" name="discount_amount">
+                                    <input type="number" class="form-control" min="0" name="discount_amount" value="0" required>
                                 </div>
                                 <div class="col-sm-3 form-group">
                                     <label>Zone:</label>
