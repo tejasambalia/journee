@@ -90,7 +90,7 @@ class PackageController extends Controller {
                         $days=($row->days==1)?'Day':'Days';
                         $nights=($row->nights==1)?'Night':'Nights';                                    
                         
-                         echo   "<div class='col-md-6 package_box'>".
+                         echo   "<div class='col-md-6 package_box eq_height'>".
                                 "<div class='package_main_box'>".
                                     "<div class='package_img'>".
                                         "<a href='".url('/packagedetails/'.$row->id)."'> ".

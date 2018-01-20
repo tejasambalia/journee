@@ -50,7 +50,7 @@
                                     if(count($search_details)>0){
                                     foreach($search_details as $row){
                                 @endphp
-                                    <div class="col-md-6 package_box">
+                                    <div class="col-md-6 package_box eq_height">
                                         <div class="package_main_box">
                                             <div class="package_img">
                                                 <a href='{{url("/packagedetails/$row->id")}}'> <img src="https://placeimg.com/200/200/any" height="200" width="200" class="img-responsive wid100"></a>

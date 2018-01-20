@@ -32,7 +32,7 @@ $data_package = Package::get();
                                     <!-- <th>Image</th> -->
                                     <th>Name</th>
                                     <th>category</th>
-                                    <th>City</th>
+                                    <!-- <th>City</th> -->
                                     <th>Availabilty (from-to)</th>
                                     <th>Description</th>
                                     <th class="action_tab">Actions</th>
@@ -51,7 +51,7 @@ $data_package = Package::get();
                                     <!-- <td><img src="https://placeimg.com/100/100/nature" class="img-responsive"></td> -->
                                     <td>{!! $d_package->name !!}</td>
                                     <td>{!! PackageCategory::getSingleColumnData($d_package->category, 'name') !!}</td>
-                                    <td>{!! City::getSingleColumnData($d_package->city, 'name') !!}</td>
+                                    <td><!-- { City::getSingleColumnData($d_package->city, 'name') } --></td>
                                     <td></td>
                                     <td>{!! $d_package->description !!}</td>
                                     <td>

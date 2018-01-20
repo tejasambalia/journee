@@ -99,7 +99,7 @@ use App\AdminModels\Package;
                                     $room_type_id = Room::getSingleColumnData($room_id->room_id, 'm_room_type_id');
                                     $room_type = RoomType::getSingleColumnData($room_type_id, 'name');
                                 @endphp
-                                    <div class="col-md-6 package_box">
+                                    <div class="col-md-6 package_box eq_height">
                                         <div class="package_main_box">
                                             <div class="package_img">
                                                 <a href='{{url("/packagedetails/$row->id")}}'> <img src='{{url("$row->upload_image")}}' height="200" width="200" class="img-responsive wid100"></a>
